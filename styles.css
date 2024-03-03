@@ -29,7 +29,7 @@
 .heading-with-image h3 {
     margin: 0;
     margin-right: 20px; /* Add right margin to separate h3 from text */
-    margin-bottom: 5px; /* Reduce vertical space between h3 and text */
+    margin-bottom: 0px; /* Reduce vertical space between h3 and text */
 }
 
 .heading-with-image h3 a {
