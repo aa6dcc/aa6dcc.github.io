@@ -1,0 +1,40 @@
+.heading-with-image {
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.heading-with-image h2 {
+    margin-left: 20px;
+}
+
+.heading-with-image ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.heading-with-image li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.heading-with-image img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.heading-with-image h3 {
+    margin: 0;
+}
+
+.heading-with-image h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.heading-with-image p {
+    margin: 0;
+    line-height: 40px; /* Adjust line height to match the image height */
+}
