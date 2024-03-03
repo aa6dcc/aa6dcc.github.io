@@ -34,11 +34,23 @@
 }
 
 
+/* Target the list items under the "Work Experience" section */
+.heading-with-image ul li.work-experience-item {
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px;
+}
+
 /* Target the images within the "Work Experience" section */
 .heading-with-image .work-experience-item img {
     width: 40px !important;
     height: 40px !important;
     margin-right: 10px;
+}
+
+/* Style the content next to the images */
+.heading-with-image .work-experience-item div {
+    flex-grow: 1; /* Allow the content to grow to fill the remaining space */
 }
 
 
