@@ -8,38 +8,36 @@
     margin-left: 20px;
 }
 
+.heading-with-image > div > h3 {
+    margin-left: 20px;
+}
+
 .heading-with-image ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.heading-with-image li {
+.heading-with-image ul li {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.heading-with-image img {
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
+.heading-with-image ul li img {
+    width: 20px; /* Adjust image width as needed */
+    height: 20px; /* Adjust image height as needed */
+    margin-right: 10px;
 }
 
-.heading-with-image h3 {
-    margin: 0;
-    margin-right: 20px;
-    margin-bottom: 5px;
-}
-
-.heading-with-image h3 a {
-    text-decoration: none;
-    color: inherit;
+.heading-with-image ul li:before {
+    content: "•";
+    margin-right: 5px;
 }
 
 .heading-with-image p {
     margin: 0;
-    line-height: 40px;
+    line-height: 20px;
 }
 
 .heading-with-image p span {
