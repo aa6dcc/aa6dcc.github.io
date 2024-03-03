@@ -1,9 +1,3 @@
-/* Target only the images within the "Work Experience" section */
-.heading-with-image ul li.work-experience-image img {
-    width: 40px !important; /* Adjust image width to 40px */
-    height: 40px !important; /* Adjust image height to 40px */
-    margin-right: 10px;
-}
 
 .heading-with-image {
     text-align: left;
@@ -38,6 +32,14 @@
     height: 30px; /* Adjust image height as needed */
     margin-right: 10px;
 }
+
+/* Target only the images within the "Work Experience" section */
+.heading-with-image ul li.work-experience-image img {
+    width: 40px !important; /* Adjust image width to 40px */
+    height: 40px !important; /* Adjust image height to 40px */
+    margin-right: 10px;
+}
+
 
 .heading-with-image ul li:before {
     content: "•";
