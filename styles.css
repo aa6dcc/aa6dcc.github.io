@@ -62,31 +62,27 @@
     margin-left: 20px;
 }
 
-
-/* Target the list items under the "Work Experience" section */
-.heading-with-image ul li.work-experience-item {
-    display: flex; /* Use flexbox layout */
-    align-items: center; /* Align items vertically */
-    margin-bottom: 10px;
-    margin-left: 0; /* Remove the left margin to align with the rest of the content */
+.work-experience-block {
+    margin-left: 20px; /* Adjust margin as needed */
 }
 
-/* Target the images within the "Work Experience" section */
-.heading-with-image .work-experience-item img {
-    width: 40px !important;
-    height: 40px !important;
+.work-experience-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.work-experience-item img {
+    width: 40px; /* Adjust image width as needed */
+    height: 40px; /* Adjust image height as needed */
     margin-right: 10px;
 }
 
-/* Style the content next to the images */
-.heading-with-image .work-experience-item div {
-    flex-grow: 1; /* Allow the content to grow to fill the remaining space */
+.work-experience-item div {
+    flex-grow: 1; /* Expand to fill remaining space */
 }
 
-/* Ensure the h3 and p elements stay inline */
-.heading-with-image .work-experience-item h3,
-.heading-with-image .work-experience-item p {
-    margin: 0; /* Remove default margin */
-    line-height: 1.2; /* Adjust line height */
+.work-experience-item h3,
+.work-experience-item p {
+    margin: 0; /* Remove default margins */
 }
-
