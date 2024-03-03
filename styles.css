@@ -34,11 +34,13 @@
 }
 
 
-/* Target the list items under the "Work Experience" section */
-.heading-with-image ul li.work-experience-image {
-    width: 40px !important; /* Adjust image width to 40px */
-    height: 40px !important; /* Adjust image height to 40px */
+/* Target the images within the "Work Experience" section */
+.heading-with-image .work-experience-item img {
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 10px;
 }
+
 
 
 .heading-with-image ul li:before {
