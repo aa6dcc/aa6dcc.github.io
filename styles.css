@@ -28,16 +28,19 @@
 
 .heading-with-image h3 {
     margin: 0;
+    margin-right: 20px; /* Add right margin to separate h3 from text */
 }
 
 .heading-with-image h3 a {
     text-decoration: none;
     color: inherit;
-    margin-right: 20px; /* Add right margin to separate h3 from text */
 }
 
 .heading-with-image p {
     margin: 0;
-    flex-grow: 1; /* Let the paragraph take up remaining space */
     line-height: 40px; /* Adjust line height to match the image height */
+}
+
+.heading-with-image p span {
+    margin-left: 20px; /* Add left margin to separate text from h3 */
 }
