@@ -26,15 +26,16 @@
 }
 
 .heading-with-image h3 {
-    margin: 0;
+    margin: 40px;
 }
 
 .heading-with-image h3 a {
     text-decoration: none;
     color: inherit;
+    margin: 40px;
 }
 
 .heading-with-image p {
-    margin: 0;
+    margin: 40px;
     line-height: 40px; /* Adjust line height to match the image height */
 }
