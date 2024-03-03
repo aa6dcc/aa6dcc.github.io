@@ -16,17 +16,19 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    margin-left: 20px;
 }
 
 .heading-with-image ul li {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .heading-with-image ul li img {
-    width: 50px; /* Adjust image width as needed */
-    height: 50px; /* Adjust image height as needed */
+    width: 20px; /* Adjust image width as needed */
+    height: 20px; /* Adjust image height as needed */
     margin-right: 10px;
 }
 
