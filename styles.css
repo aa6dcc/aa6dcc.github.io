@@ -1,6 +1,7 @@
 .heading-with-image {
     text-align: left;
     font-family: Arial, sans-serif;
+    margin-bottom: 20px; /* Add some margin at the bottom */
 }
 
 .heading-with-image h2 {
@@ -26,16 +27,16 @@
 }
 
 .heading-with-image h3 {
-    margin: 40px;
+    margin: 0;
+    margin-right: 20px; /* Add right margin to separate h3 from text */
 }
 
 .heading-with-image h3 a {
     text-decoration: none;
     color: inherit;
-    margin: 40px;
 }
 
 .heading-with-image p {
-    margin: 40px;
+    margin: 0;
     line-height: 40px; /* Adjust line height to match the image height */
 }
