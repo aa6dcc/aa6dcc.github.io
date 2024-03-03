@@ -7,10 +7,16 @@
 
 .heading-with-image h2 {
     margin-left: 20px;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Align items vertically */
+}
+
+.heading-with-image h2 img {
+    margin-left: 10px; /* Add space between images */
 }
 
 .heading-with-image > div > h3 {
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .heading-with-image ul {
