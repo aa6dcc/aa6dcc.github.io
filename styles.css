@@ -8,6 +8,10 @@
     margin-left: 20px;
 }
 
+.heading-with-image h3 {
+    margin-left: 40px;
+}
+
 .heading-with-image ul {
     list-style: none;
     margin: 0;
@@ -21,13 +25,14 @@
 }
 
 .heading-with-image img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 20px;
 }
 
 .heading-with-image h3 {
     margin: 0;
+    margin-left: 40px;
     margin-right: 20px; /* Add right margin to separate h3 from text */
     margin-bottom: 0px; /* Reduce vertical space between h3 and text */
 }
