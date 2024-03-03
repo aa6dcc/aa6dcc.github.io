@@ -63,8 +63,16 @@
 }
 
 .work-experience-block {
+    text-align: left;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    
+}
+
+.work-experience-block h2 {
     margin-left: 20px; /* Adjust margin as needed */
 }
+
 
 .work-experience-item {
     display: flex;
