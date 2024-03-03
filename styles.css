@@ -68,6 +68,7 @@
     display: flex; /* Use flexbox layout */
     align-items: center; /* Align items vertically */
     margin-bottom: 10px;
+    margin-left: 0; /* Remove the left margin to align with the rest of the content */
 }
 
 /* Target the images within the "Work Experience" section */
@@ -88,3 +89,4 @@
     margin: 0; /* Remove default margin */
     line-height: 1.2; /* Adjust line height */
 }
+
