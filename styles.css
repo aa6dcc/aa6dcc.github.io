@@ -45,3 +45,9 @@
 .heading-with-image p span {
     margin-left: 20px;
 }
+
+.work-experience-image {
+    width: 40px; /* Adjust image width to 40px */
+    height: 40px; /* Adjust image height to 40px */
+    margin-right: 10px;
+}
