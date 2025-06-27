@@ -1,102 +1,95 @@
-
-.heading-with-image {
-    text-align: left;
-    font-family: Arial, sans-serif;
-    margin-bottom: 20px;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
 }
 
-.heading-with-image h2 {
-    margin-left: 20px;
-    display: flex; /* Use flexbox layout */
-    align-items: center; /* Align items vertically */
+header, main, footer {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: white;
 }
 
-.heading-with-image h2 img {
-    margin-left: 10px; /* Add space between images */
+.profile-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
 }
 
-.heading-with-image > div > h3 {
-    margin-left: 30px;
+.profile-img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
 }
 
-.heading-with-image ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-left: 20px;
+.profile-info h1 {
+  margin: 0;
 }
 
-.heading-with-image ul li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    margin-left: 20px;
+.profile-info p {
+  margin-top: 5px;
 }
 
-.heading-with-image ul li img {
-    width: 20px; /* Adjust image width as needed */
-    height: 20px; /* Adjust image height as needed */
-    margin-right: 10px;
+.social-links img {
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
-
-/* Target the list items under the "Work Experience" section */
-.heading-with-image ul li.work-experience-item {
-    display: flex; /* Use flexbox layout */
-    align-items: center; /* Align items vertically */
-    margin-bottom: 10px;
+section {
+  margin-top: 40px;
 }
 
-/* Style the content next to the images */
-.heading-with-image .work-experience-item div {
-    flex-grow: 1; /* Allow the content to grow to fill the remaining space */
+section h2 {
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 1.5em;
 }
 
-
-
-.heading-with-image ul li:before {
-    content: "•";
-    margin-right: 5px;
+.society-logos img {
+  height: 50px;
+  margin: 5px 10px 5px 0;
+  vertical-align: middle;
 }
 
-.heading-with-image p {
-    margin: 0;
-    line-height: 20px;
+.work-experience ul,
+.projects ul {
+  list-style: none;
+  padding: 0;
 }
 
-.heading-with-image p span {
-    margin-left: 20px;
+.work-experience li,
+.projects .category ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.work-experience-block {
-    text-align: left;
-    font-family: Arial, sans-serif;
-    margin-bottom: 20px;
-    
+.work-experience li img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border-radius: 4px;
 }
 
-.work-experience-block h2 {
-    margin-left: 20px; /* Adjust margin as needed */
+.projects .category {
+  margin-bottom: 20px;
 }
 
-
-.work-experience-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.projects ul li {
+  margin-bottom: 10px;
 }
 
-.work-experience-item img {
-    width: 40px; /* Adjust image width as needed */
-    height: 40px; /* Adjust image height as needed */
-    margin-right: 10px;
-}
-
-.work-experience-item div {
-    flex-grow: 1; /* Expand to fill remaining space */
-}
-
-.work-experience-item h3,
-.work-experience-item p {
-    margin: 0; /* Remove default margins */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #777;
 }
