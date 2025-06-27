@@ -1,24 +1,15 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
-}
-
-header, main, footer {
-  max-width: 1000px;
-  margin: auto;
   padding: 20px;
-  background: white;
+  background: #fdfdfd;
+  color: #333;
 }
 
 .profile-container {
   display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
 .profile-img {
@@ -33,91 +24,88 @@ header, main, footer {
 }
 
 .profile-info p {
-  margin-top: 5px;
+  margin: 8px 0;
 }
 
-.social-links img {
-  height: 20px;
+.social-links a img {
+  height: 24px;
+  width: auto;
   margin-right: 10px;
   vertical-align: middle;
 }
 
 section {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
-section h2 {
-  border-bottom: 2px solid #4a90e2;
+h2 {
+  font-size: 20px;
+  border-bottom: 2px solid #ccc;
   padding-bottom: 5px;
-  margin-bottom: 15px;
-  font-size: 1.5em;
+}
+
+ul {
+  padding-left: 20px;
 }
 
 .society-logos img {
-  height: 50px;
+  height: 40px;
   margin: 5px 10px 5px 0;
-  vertical-align: middle;
-}
-
-.work-experience ul,
-.projects ul {
-  list-style: none;
-  padding: 0;
 }
 
 .work-experience li,
-.projects .category ul li {
+.projects li {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-}
-
-.work-experience li img {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
-  border-radius: 4px;
-}
-
-.projects .category {
-  margin-bottom: 20px;
-}
-
-.projects ul li {
   margin-bottom: 10px;
 }
 
-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #777;
-}
-
-/* Fix overly large icons */
-.social-links img {
-  height: 24px;
-  width: auto;
-  margin-right: 10px;
-  vertical-align: middle;
-}
-
-/* Normalize all society logos */
-.society-logos img {
+.work-experience img {
+  width: 40px;
   height: 40px;
-  width: auto;
-  margin: 5px 10px 5px 0;
+  margin-right: 10px;
+  object-fit: contain;
 }
 
-/* Cap all images in main content to avoid accidental overflow */
-main img {
-  max-height: 60px;
-  height: auto;
-  width: auto;
+.projects li a {
+  margin-left: 5px;
 }
 
-/* Prevent CV PDF icon from scaling too large */
-.profile-info a img[alt="CV"] {
-  height: 24px;
-  width: auto;
+table {
+  width: 100%;
+  max-width: 1100px;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid #aaa;
+  table-layout: fixed;
+}
+
+table th,
+table td {
+  padding: 8px;
+  border: 1px solid #aaa;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+table th:nth-child(1),
+table td:nth-child(1) {
+  width: 14%;
+}
+table th:nth-child(2),
+table td:nth-child(2) {
+  width: 14%;
+}
+table th:nth-child(3),
+table td:nth-child(3) {
+  width: 32%;
+}
+table th:nth-child(4),
+table td:nth-child(4) {
+  width: 40%;
+}
+
+table th {
+  background-color: #f0f0f0;
+  text-align: left;
 }
