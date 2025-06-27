@@ -58,7 +58,7 @@ ul {
 .projects li {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .work-experience img {
@@ -75,7 +75,7 @@ ul {
 /* Curriculum Table Styling */
 table {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   border-collapse: collapse;
   margin-top: 10px;
   border: 1px solid #aaa;
@@ -93,22 +93,22 @@ table td {
 
 table th:nth-child(1),
 table td:nth-child(1) {
-  width: 15%;
+  width: 12%;
 }
 
 table th:nth-child(2),
 table td:nth-child(2) {
-  width: 15%;
+  width: 12%;
 }
 
 table th:nth-child(3),
 table td:nth-child(3) {
-  width: 35%;
+  width: 34%;
 }
 
 table th:nth-child(4),
 table td:nth-child(4) {
-  width: 35%;
+  width: 42%;
 }
 
 table th {
