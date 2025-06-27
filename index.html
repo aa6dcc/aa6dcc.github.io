@@ -102,16 +102,20 @@
   <section class="courses">
     <h2>Courses & Modules</h2>
     <ul>
-      <li><a href="https://www.imperial.ac.uk/study/courses/undergraduate/2025/electrical-electronic-engineering-meng/">First Year EEE</a></li>
       <li>
-        <button onclick="toggleModules()" style="all: unset; color: blue; cursor: pointer; text-decoration: underline;">
-          Second Year EIE
+        <button onclick="toggleTable('eee-modules')" style="all: unset; color: blue; cursor: pointer; text-decoration: underline;">
+          First Year EEE (2023–2024)
+        </button>
+      </li>
+      <li>
+        <button onclick="toggleTable('eie-modules')" style="all: unset; color: blue; cursor: pointer; text-decoration: underline;">
+          Second Year EIE (2024–2025)
         </button>
       </li>
     </ul>
 
-    <div id="eie-modules" style="display: none; margin-top: 10px;">
-      <table border="1" cellpadding="6" cellspacing="0">
+    <div id="eee-modules" style="display: none;">
+      <table>
         <thead>
           <tr>
             <th>Module Code</th>
@@ -121,70 +125,43 @@
           </tr>
         </thead>
         <tbody>
+          <tr><td>ELEC40002</td><td>Autumn & Spring</td><td>Analysis and Design of Circuits</td><td>Prof Paul Mitcheson; Dr Zohaib Akhtar</td></tr>
+          <tr><td>ELEC40003</td><td>Autumn & Spring</td><td>Digital Electronics and Computer Architecture</td><td>Dr Tom Clarke; Prof George Constantinides</td></tr>
+          <tr><td>ELEC40004</td><td>Autumn & Spring</td><td>Programming for Engineers</td><td>Dr Max Cattafi; Mr Sarim Baig</td></tr>
+          <tr><td>ELEC40006</td><td>Summer</td><td>Electronics Design Project 1</td><td>Dr Hakan Merdan</td></tr>
+          <tr><td>ELEC40009</td><td>Autumn & Spring</td><td>Topics in Electrical Engineering</td><td>Prof Tim Green; Prof Eric Yeatman; Prof Kristel Fobelets; Prof Kin Leung</td></tr>
+          <tr><td>ELEC40012A</td><td>Autumn</td><td>Mathematics 1A</td><td>Dr Daniel Nucinkis</td></tr>
+          <tr><td>ELEC40012B</td><td>Spring</td><td>Mathematics 1B</td><td>Dr Daniel Nucinkis</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="eie-modules" style="display: none;">
+      <table>
+        <thead>
           <tr>
-            <td>ELEC50002</td>
-            <td>Spring</td>
-            <td>Communications</td>
-            <td>Prof Deniz Gunduz</td>
+            <th>Module Code</th>
+            <th>Term</th>
+            <th>Module Title</th>
+            <th>Lecturer(s)</th>
           </tr>
-          <tr>
-            <td>ELEC50004</td>
-            <td>Spring</td>
-            <td>Control Systems</td>
-            <td>Prof Thomas Parisini</td>
-          </tr>
-          <tr>
-            <td>ELEC50006</td>
-            <td>Autumn</td>
-            <td>Discrete Mathematics</td>
-            <td>Dr Dan Goodman</td>
-          </tr>
-          <tr>
-            <td>ELEC50009</td>
-            <td>Spring</td>
-            <td>Information Processing</td>
-            <td>Dr Aaron Zhao; Mr Sarim Baig</td>
-          </tr>
-          <tr>
-            <td>ELEC50010</td>
-            <td>Autumn & Spring</td>
-            <td>Instruction Architectures and Compilers</td>
-            <td>Dr John Wickerson; Prof Peter Cheung</td>
-          </tr>
-          <tr>
-            <td>ELEC50011A</td>
-            <td>Autumn</td>
-            <td>Mathematics for Engineers IIA</td>
-            <td>Dr Daniel Nucinkis; Dr Stefan Vlaski</td>
-          </tr>
-          <tr>
-            <td>ELEC50011B</td>
-            <td>Autumn</td>
-            <td>Mathematics for Engineers IIB</td>
-            <td>Dr Stefan Vlaski</td>
-          </tr>
-          <tr>
-            <td>ELEC50013</td>
-            <td>Autumn</td>
-            <td>Signals and Systems</td>
-            <td>Prof Patrick Naylor</td>
-          </tr>
-          <tr>
-            <td>ELEC50014</td>
-            <td>Autumn</td>
-            <td>Software Systems</td>
-            <td>Mr Sarim Baig</td>
-          </tr>
-          <tr>
-            <td>ELEC50015</td>
-            <td>Autumn & Spring</td>
-            <td>Electronics Design Project 2</td>
-            <td>Dr Edward Stott</td>
-          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ELEC50002</td><td>Spring</td><td>Communications</td><td>Prof Deniz Gunduz</td></tr>
+          <tr><td>ELEC50004</td><td>Spring</td><td>Control Systems</td><td>Prof Thomas Parisini</td></tr>
+          <tr><td>ELEC50006</td><td>Autumn</td><td>Discrete Mathematics</td><td>Dr Dan Goodman</td></tr>
+          <tr><td>ELEC50009</td><td>Spring</td><td>Information Processing</td><td>Dr Aaron Zhao; Mr Sarim Baig</td></tr>
+          <tr><td>ELEC50010</td><td>Autumn & Spring</td><td>Instruction Architectures and Compilers</td><td>Dr John Wickerson; Prof Peter Cheung</td></tr>
+          <tr><td>ELEC50011A</td><td>Autumn</td><td>Mathematics for Engineers IIA</td><td>Dr Daniel Nucinkis; Dr Stefan Vlaski</td></tr>
+          <tr><td>ELEC50011B</td><td>Autumn</td><td>Mathematics for Engineers IIB</td><td>Dr Stefan Vlaski</td></tr>
+          <tr><td>ELEC50013</td><td>Autumn</td><td>Signals and Systems</td><td>Prof Patrick Naylor</td></tr>
+          <tr><td>ELEC50014</td><td>Autumn</td><td>Software Systems</td><td>Mr Sarim Baig</td></tr>
+          <tr><td>ELEC50015</td><td>Autumn & Spring</td><td>Electronics Design Project 2</td><td>Dr Edward Stott</td></tr>
         </tbody>
       </table>
     </div>
   </section>
+
 
   <section>
     <h2>Societies</h2>
@@ -226,13 +203,12 @@
     <h2>Contact</h2>
     <p>Email: antoine.divet23 [at] imperial [dot] ac [dot] uk</p>
   </section>
-</body>
-</html>
-
 
 <script>
-  function toggleModules() {
-    const table = document.getElementById('eie-modules');
-    table.style.display = (table.style.display === 'none') ? 'block' : 'none';
-  }
-</script>
+    function toggleTable(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
