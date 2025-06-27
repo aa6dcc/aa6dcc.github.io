@@ -67,7 +67,7 @@ ul {
 }
 
 .work-experience p {
-  margin: 4px 0 8px 0;
+  margin: 3px 0 7px 0;
 }
 
 .work-experience img {
@@ -84,7 +84,7 @@ ul {
 /* Curriculum Table Styling */
 table {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1250px;
   border-collapse: collapse;
   margin-top: 10px;
   border: 1px solid #aaa;
@@ -102,7 +102,7 @@ table td {
 
 table th:nth-child(1),
 table td:nth-child(1) {
-  width: 8%;
+  width: 9%;
 }
 
 table th:nth-child(2),
@@ -117,7 +117,7 @@ table td:nth-child(3) {
 
 table th:nth-child(4),
 table td:nth-child(4) {
-  width: 50%;
+  width: 49%;
 }
 
 table th {
