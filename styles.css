@@ -67,7 +67,7 @@ ul {
 }
 
 .work-experience p {
-  margin: 2px 0 6px 0;
+  margin: 4px 0 8px 0;
 }
 
 .work-experience img {
@@ -107,12 +107,12 @@ table td:nth-child(1) {
 
 table th:nth-child(2),
 table td:nth-child(2) {
-  width: 10%;
+  width: 12%;
 }
 
 table th:nth-child(3),
 table td:nth-child(3) {
-  width: 32%;
+  width: 30%;
 }
 
 table th:nth-child(4),
