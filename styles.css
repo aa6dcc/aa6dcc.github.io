@@ -2,6 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  padding-left: 40px;
   background: #fdfdfd;
   color: #333;
 }
@@ -71,6 +72,7 @@ ul {
   margin-left: 5px;
 }
 
+/* Curriculum Table Styling */
 table {
   width: 100%;
   max-width: 1100px;
@@ -86,23 +88,27 @@ table td {
   border: 1px solid #aaa;
   vertical-align: top;
   word-wrap: break-word;
+  background-color: white;
 }
 
 table th:nth-child(1),
 table td:nth-child(1) {
-  width: 14%;
+  width: 15%;
 }
+
 table th:nth-child(2),
 table td:nth-child(2) {
-  width: 14%;
+  width: 15%;
 }
+
 table th:nth-child(3),
 table td:nth-child(3) {
-  width: 32%;
+  width: 35%;
 }
+
 table th:nth-child(4),
 table td:nth-child(4) {
-  width: 40%;
+  width: 35%;
 }
 
 table th {
