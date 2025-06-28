@@ -361,12 +361,16 @@
 
   document.querySelectorAll(".nested-toggle").forEach(button => {
     button.addEventListener("click", () => {
-      const content = button.nextElementSibling;
+      const parent = button.closest("div");
+      const content = parent?.nextElementSibling;
+      if (!content || !content.classList.contains("nested-content")) return;
+
       const isOpen = content.style.display === "block";
       content.style.display = isOpen ? "none" : "block";
       button.textContent = isOpen ? "▶ Show more" : "▼ Hide details";
     });
   });
+
 
 </script>
 
