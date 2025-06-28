@@ -124,3 +124,25 @@ table th {
   background-color: #f0f0f0;
   text-align: left;
 }
+
+.toggle-links {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.toggle-btn {
+  all: unset;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+}
+
+.toggle-btn.open::before {
+  content: "▼ ";
+}
+
+.toggle-btn:not(.open)::before {
+  content: "▶ ";
+}
+

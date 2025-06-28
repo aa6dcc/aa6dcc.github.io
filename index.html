@@ -29,18 +29,15 @@
 
   <section class="courses">
     <h2>Courses & Modules</h2>
-    <ul>
+    <ul class="toggle-links">
       <li>
-        <button onclick="toggleTable('eee-modules')" style="all: unset; color: blue; cursor: pointer; text-decoration: underline;">
-          First Year EEE (2023–2024)
-        </button>
+        <button class="toggle-btn" data-target="long-term-exp">▶ Long-Term Experience (Internships & Roles)</button>
       </li>
       <li>
-        <button onclick="toggleTable('eie-modules')" style="all: unset; color: blue; cursor: pointer; text-decoration: underline;">
-          Second Year EIE (2024–2025)
-        </button>
+        <button class="toggle-btn" data-target="insights-exp">▶ Insights & Masterclasses</button>
       </li>
     </ul>
+
 
     <div id="eee-modules" style="display: none;">
       <table>
@@ -231,10 +228,17 @@
   </section>
 
 <script>
-    function toggleTable(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === 'none' ? 'block' : 'none';
-    }
-  </script>
+  document.querySelectorAll(".toggle-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const targetId = button.dataset.target;
+      const content = document.getElementById(targetId);
+
+      const isOpen = content.style.display === "block";
+      content.style.display = isOpen ? "none" : "block";
+      button.classList.toggle("open", !isOpen);
+    });
+  });
+</script>
+
 </body>
 </html>
