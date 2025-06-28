@@ -163,3 +163,24 @@ table th {
 .project-grid .content {
   text-align: left;
 }
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.job-header p {
+  margin: 3px 0;
+  flex: 1;
+}
+
+.nested-toggle {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 0;
+}
