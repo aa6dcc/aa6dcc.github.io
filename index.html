@@ -119,6 +119,14 @@
           <div>
             <h3><a href="https://www.stonex.com/en/">StoneX</a></h3>
             <p>Summer 2025 – 10 weeks internship, Risk Software Developer Intern</p>
+            <button class="nested-toggle">▶ Show more</button>
+            <div class="nested-content" style="display: none; margin-top: 5px;">
+              <ul>
+                <li>Worked with the risk analytics team on production tooling</li>
+                <li>Designed Python scripts to automate exposure reporting</li>
+                <li>Collaborated with QA team on performance testing suite</li>
+              </ul>
+            </div>
           </div>
         </li>
         <li>
@@ -228,6 +236,79 @@
     </li>
   </ul>
 
+  <h2>Projects & Interests</h2>
+  <ul class="toggle-links">
+    <li><button class="toggle-btn" data-target="projects-programming">Programming</button></li>
+    <li><button class="toggle-btn" data-target="projects-finance">Finance</button></li>
+    <li><button class="toggle-btn" data-target="projects-engineering">Engineering</button></li>
+    <li><button class="toggle-btn" data-target="projects-data">Maths, Data Science and ML</button></li>
+    <li><button class="toggle-btn" data-target="projects-sports">Sports</button></li>
+  </ul>
+
+  <div id="projects-programming" style="display: none">
+    <div class="project-grid">
+      <div class="label">C++</div>
+      <div class="content">
+        Built a C90 compiler targeting 64-bit RISC-V
+        <button class="nested-toggle">▶ Show more</button>
+        <div class="nested-content">
+          <ul>
+            <li>Includes lexer, parser, and AST builder for C90</li>
+            <li>Semantic analysis using scoped symbol table</li>
+            <li>Supports control flow, arithmetic, functions, structs</li>
+            <li>Generates RISC-V code with proper stack frame management</li>
+            <li>Built and tested using Docker</li>
+            <li>Tracked tasks using Jira</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="label">Python</div>
+      <div class="content">
+        Black-Scholes <a href="projets/display_Black_Scholes.html"><img src="images/GitHub.png" width="15"></a>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="label">Python</div>
+      <div class="content">
+        Projectile Simulation <a href="projets/Simulation_Trajectoire_NSI_Antoine_DIVET.html"><img src="images/html logo.jpg" width="15"></a>
+        <a href="https://github.com/aa6dcc/TrajectoireAvecFrottements"><img src="images/GitHub.png" width="15"></a>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="label">Python</div>
+      <div class="content">
+        Kaggle Certifications (Pandas, Data Viz, Python)
+        <button class="nested-toggle">▶ Show more</button>
+        <div class="nested-content">
+          <ul>
+            <li><a href="https://www.kaggle.com/learn/pandas">Pandas</a> – <a href="https://www.kaggle.com/learn/certification/antoinedivet/pandas"><img src="images/logo certificate.png" width="15"></a></li>
+            <li><a href="https://www.kaggle.com/learn/data-visualization">Data Visualization</a> – <a href="https://www.kaggle.com/learn/certification/antoinedivet/data-visualization"><img src="images/logo certificate.png" width="15"></a></li>
+            <li><a href="https://www.kaggle.com/learn/python">Python</a> – <a href="https://www.kaggle.com/learn/certification/antoinedivet/python"><img src="images/logo certificate.png" width="15"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="label">Excel</div>
+      <div class="content">
+        Forage Job Simulations (JP Morgan, Goldman Sachs)
+        <button class="nested-toggle">▶ Show more</button>
+        <div class="nested-content">
+          <ul>
+            <li>JP Morgan <a href="https://www.theforage.com/simulations/jpmorgan/excel-skills-h5vs"><img src="images/forage_logo.jpg" width="15"></a></li>
+            <li>Goldman Sachs <a href="https://www.theforage.com/simulations/goldman-sachs/excel-skills-oi3f"><img src="images/forage_logo.jpg" width="15"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="projects-finance" style="display: none">
     <ul>
       <li>- Security Education Certificate <a href="https://investmentsoc.com/"><img src="images/SEC_logo.png" width="15"></a> <a href="images/SEC certif.jpg"><img src="images/logo certificate.png" width="15"></a></li>
@@ -336,7 +417,19 @@
       button.classList.toggle("open", !isOpen);
     });
   });
+
+  document.querySelectorAll(".nested-toggle").forEach(button => {
+    button.addEventListener("click", () => {
+      const content = button.nextElementSibling;
+      const isOpen = content.style.display === "block";
+      content.style.display = isOpen ? "none" : "block";
+      button.textContent = isOpen ? "▶ Show more" : "▼ Hide details";
+    });
+  });
+
 </script>
+
+
 
 </body>
 </html>

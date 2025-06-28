@@ -147,3 +147,19 @@ table th {
   content: "▶ ";
 }
 
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.project-grid .label {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.project-grid .content {
+  text-align: left;
+}
