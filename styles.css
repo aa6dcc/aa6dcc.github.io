@@ -164,17 +164,23 @@ table th {
   text-align: left;
 }
 
-.job-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  flex-wrap: wrap; /* Optional: helps on small screens */
-}
-
-
 .job-header p {
   margin: 3px 0;
   flex: 1;
+}
+
+.job-header {
+  display: flex;
+  align-items: center;   /* Aligns vertically */
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.job-header .job-summary {
+  margin: 3px 0;
+  font-size: 1em;         /* Normal size for the title line */
+  flex-shrink: 1;         /* Prevent pushing the button */
+  flex-grow: 0;           /* Prevent stretching full width */
 }
 
 .nested-toggle {
@@ -182,8 +188,14 @@ table th {
   border: none;
   color: #333;
   cursor: pointer;
-  font-size: 0.8em; /* smaller text */
+  font-size: 0.8em;
   padding: 0;
-  margin-top: 2px;
+  margin: 0;
+}
+
+.nested-content ul {
+  font-size: 0.85em;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
