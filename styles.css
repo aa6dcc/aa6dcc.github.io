@@ -164,6 +164,31 @@ table th {
   text-align: left;
 }
 
+.project-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 30px;
+  align-items: start;
+  padding-right: 10px;
+}
+
+.project-grid-container ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.project-grid-container li img {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.project-subsection h4 {
+  margin: 0 0 6px 0;
+  font-size: 1em;
+  text-decoration: underline;
+}
+
 .job-header p {
   margin: 3px 0;
   flex: 1;
