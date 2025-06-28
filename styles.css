@@ -166,10 +166,11 @@ table th {
 
 .job-header {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: wrap; /* Optional: helps on small screens */
 }
+
 
 .job-header p {
   margin: 3px 0;
@@ -181,6 +182,8 @@ table th {
   border: none;
   color: #333;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 0.8em; /* smaller text */
   padding: 0;
+  margin-top: 2px;
 }
+
