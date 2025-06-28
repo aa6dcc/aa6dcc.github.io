@@ -61,6 +61,7 @@ ul {
   margin-bottom: 2px;
 }
 
+
 .work-experience h3 {
   margin: 0;
   font-size: 1rem;
@@ -126,7 +127,7 @@ table th {
 }
 
 .toggle-links {
-  list-style: disc;
+  list-style: none;
   padding-left: 20px;
 }
 
