@@ -8,15 +8,19 @@
   border-radius: 4px;
 }
 
-
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  padding: 20px;
-  padding-left: 40px;
-  background: linear-gradient(to bottom, #f7f8fa, #ebecf0);
+  padding: 20px 40px;
   color: #333;
+  background: 
+    linear-gradient(to bottom, rgba(247, 248, 250, 0.95), rgba(235, 236, 240, 0.95)),
+    url('images/bg-tech-pattern.svg'); /* or use a subtle PNG/JPG if SVG isn't available */
+  background-repeat: repeat;
+  background-size: 300px auto;
+  background-attachment: fixed;
 }
+
 
 .content-card {
   background: white;
