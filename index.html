@@ -4,493 +4,752 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antoine Divet</title>
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a1a1a;
+      --accent-color: #2563eb;
+      --text-color: #374151;
+      --text-light: #6b7280;
+      --bg-color: #ffffff;
+      --bg-secondary: #f8fafc;
+      --border-color: #e5e7eb;
+      --hover-color: #f3f4f6;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--bg-color);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #374151 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+      opacity: 0.1;
+    }
+
+    .profile-section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .name {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .social-links img {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Content Section */
+    .content {
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent-color) 0%, #3b82f6 100%);
+      border-radius: 2px;
+    }
+
+    .toggle-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .toggle-btn {
+      background: var(--bg-secondary);
+      color: var(--text-color);
+      border: 2px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .toggle-btn:hover {
+      background: var(--hover-color);
+      border-color: var(--accent-color);
+    }
+
+    .toggle-btn.active {
+      background: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+    }
+
+    .toggle-content {
+      display: none;
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .toggle-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Table Styling */
+    .table-container {
+      overflow-x: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background: var(--bg-secondary);
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    tr:hover {
+      background: var(--hover-color);
+    }
+
+    /* Work Experience Cards */
+    .experience-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .experience-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .experience-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .experience-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      margin-right: 1rem;
+      object-fit: contain;
+    }
+
+    .experience-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .experience-period {
+      color: var(--text-light);
+      font-size: 0.875rem;
+    }
+
+    .expand-btn {
+      background: none;
+      border: none;
+      color: var(--accent-color);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .expand-btn:hover {
+      color: var(--primary-color);
+    }
+
+    .expanded-content {
+      display: none;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .expanded-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .expanded-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .expanded-content li {
+      padding: 0.5rem 0;
+      border-left: 3px solid var(--accent-color);
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Society Logos */
+    .society-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .society-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .society-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .society-item img {
+      max-width: 80px;
+      max-height: 60px;
+      object-fit: contain;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .project-category {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .project-category h4 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .project-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .project-list li:last-child {
+      border-bottom: none;
+    }
+
+    .project-list a {
+      color: var(--accent-color);
+      text-decoration: none;
+      margin-left: 0.5rem;
+    }
+
+    .project-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      color: var(--text-light);
+      font-size: 1.125rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .header {
+        padding: 2rem 1rem;
+      }
+
+      .name {
+        font-size: 2rem;
+      }
+
+      .content {
+        padding: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .toggle-group {
+        flex-direction: column;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .experience-logo {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="profile-container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <img src="images/pdp.png" alt="Profile Picture" class="profile-img">
-    <div class="profile-info">
-      <h1>Antoine Divet</h1>
-      <p>
-        Second year student in Computer Engineering
-        (<a href="https://www.imperial.ac.uk/study/courses/undergraduate/electronic-information-meng/" target="_blank">EIE</a>) at
-        <a href="https://www.imperial.ac.uk/" target="_blank">
-          <img src="images/Logo_for_Imperial_College_London.svg.png" alt="Imperial College London" height="20">
-        </a>
-      </p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/antoine-divet-674a1827b/"><img src="images/LinkedIn-Logo.png" alt="LinkedIn"></a>
-        <a href="https://github.com/aa6dcc"><img src="images/GitHub.png" alt="GitHub"></a>
-        <a href="documents/CV - Antoine DIVET github.io.pdf"><img src="images/PDF_file_icon.svg.png" alt="CV"></a>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="profile-section">
+        <img src="images/pdp.png" alt="Profile Picture" class="profile-img">
+        <h1 class="name">Antoine Divet</h1>
+        <p class="title">
+          Second year student in Computer Engineering 
+          (<a href="https://www.imperial.ac.uk/study/courses/undergraduate/electronic-information-meng/" target="_blank" style="color: rgba(255,255,255,0.8);">EIE</a>) at
+          <a href="https://www.imperial.ac.uk/" target="_blank" style="color: rgba(255,255,255,0.8);">Imperial College London</a>
+        </p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/antoine-divet-674a1827b/" target="_blank">
+            <img src="images/LinkedIn-Logo.png" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/aa6dcc" target="_blank">
+            <img src="images/GitHub.png" alt="GitHub">
+          </a>
+          <a href="documents/CV - Antoine DIVET github.io.pdf" target="_blank">
+            <img src="images/PDF_file_icon.svg.png" alt="CV">
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <section class="courses">
-    <h2>Courses & Modules</h2>
-      <ul class="toggle-links">
-        <li>
-          <button class="toggle-btn" data-target="eee-modules">1<sup>st</sup> Year EEE (2023-2024)</button>
-        </li>
-        <li>
-          <button class="toggle-btn" data-target="eie-modules">2<sup>nd</sup> Year EIE (2024-2025)</button>
-        </li>
-      </ul>
+    <!-- Content Section -->
+    <div class="content">
+      <!-- Courses Section -->
+      <section class="section">
+        <h2 class="section-title">Courses & Modules</h2>
+        <div class="toggle-group">
+          <button class="toggle-btn" data-target="eee-modules">1st Year EEE (2023-2024)</button>
+          <button class="toggle-btn" data-target="eie-modules">2nd Year EIE (2024-2025)</button>
+        </div>
 
+        <div id="eee-modules" class="toggle-content">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Module Code</th>
+                  <th>Term</th>
+                  <th>Module Title</th>
+                  <th>Lecturer(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>ELEC40002</td><td>Autumn & Spring</td><td>Analysis and Design of Circuits</td><td>Prof Paul Mitcheson; Dr Zohaib Akhtar</td></tr>
+                <tr><td>ELEC40003</td><td>Autumn & Spring</td><td>Digital Electronics and Computer Architecture</td><td>Dr Tom Clarke; Prof George Constantinides</td></tr>
+                <tr><td>ELEC40004</td><td>Autumn & Spring</td><td>Programming for Engineers</td><td>Dr Max Cattafi; Mr Sarim Baig</td></tr>
+                <tr><td>ELEC40006</td><td>Summer</td><td>Electronics Design Project 1</td><td>Dr Hakan Merdan</td></tr>
+                <tr><td>ELEC40009</td><td>Autumn & Spring</td><td>Topics in Electrical Engineering</td><td>Prof Tim Green; Prof Eric Yeatman; Prof Kristel Fobelets; Prof Kin Leung</td></tr>
+                <tr><td>ELEC40012A</td><td>Autumn</td><td>Mathematics 1A</td><td>Dr Daniel Nucinkis</td></tr>
+                <tr><td>ELEC40012B</td><td>Spring</td><td>Mathematics 1B</td><td>Dr Daniel Nucinkis</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-    <div id="eee-modules" style="display: none;">
-      <table>
-        <thead>
-          <tr>
-            <th>Module Code</th>
-            <th>Term</th>
-            <th>Module Title</th>
-            <th>Lecturer(s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>ELEC40002</td><td>Autumn & Spring</td><td>Analysis and Design of Circuits</td><td>Prof Paul Mitcheson; Dr Zohaib Akhtar</td></tr>
-          <tr><td>ELEC40003</td><td>Autumn & Spring</td><td>Digital Electronics and Computer Architecture</td><td>Dr Tom Clarke; Prof George Constantinides</td></tr>
-          <tr><td>ELEC40004</td><td>Autumn & Spring</td><td>Programming for Engineers</td><td>Dr Max Cattafi; Mr Sarim Baig</td></tr>
-          <tr><td>ELEC40006</td><td>Summer</td><td>Electronics Design Project 1</td><td>Dr Hakan Merdan</td></tr>
-          <tr><td>ELEC40009</td><td>Autumn & Spring</td><td>Topics in Electrical Engineering</td><td>Prof Tim Green; Prof Eric Yeatman; Prof Kristel Fobelets; Prof Kin Leung</td></tr>
-          <tr><td>ELEC40012A</td><td>Autumn</td><td>Mathematics 1A</td><td>Dr Daniel Nucinkis</td></tr>
-          <tr><td>ELEC40012B</td><td>Spring</td><td>Mathematics 1B</td><td>Dr Daniel Nucinkis</td></tr>
-        </tbody>
-      </table>
-    </div>
+        <div id="eie-modules" class="toggle-content">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Module Code</th>
+                  <th>Term</th>
+                  <th>Module Title</th>
+                  <th>Lecturer(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>ELEC50002</td><td>Spring</td><td>Communications</td><td>Prof Deniz Gunduz</td></tr>
+                <tr><td>ELEC50004</td><td>Spring</td><td>Control Systems</td><td>Prof Thomas Parisini</td></tr>
+                <tr><td>ELEC50006</td><td>Autumn</td><td>Discrete Mathematics</td><td>Dr Dan Goodman</td></tr>
+                <tr><td>ELEC50009</td><td>Spring</td><td>Information Processing</td><td>Dr Aaron Zhao; Mr Sarim Baig</td></tr>
+                <tr><td>ELEC50010</td><td>Autumn & Spring</td><td>Instruction Architectures and Compilers</td><td>Dr John Wickerson; Prof Peter Cheung</td></tr>
+                <tr><td>ELEC50011A</td><td>Autumn</td><td>Mathematics for Engineers IIA</td><td>Dr Daniel Nucinkis; Dr Stefan Vlaski</td></tr>
+                <tr><td>ELEC50011B</td><td>Autumn</td><td>Mathematics for Engineers IIB</td><td>Dr Stefan Vlaski</td></tr>
+                <tr><td>ELEC50013</td><td>Autumn</td><td>Signals and Systems</td><td>Prof Patrick Naylor</td></tr>
+                <tr><td>ELEC50014</td><td>Autumn</td><td>Software Systems</td><td>Mr Sarim Baig</td></tr>
+                <tr><td>ELEC50015</td><td>Autumn & Spring</td><td>Electronics Design Project 2</td><td>Dr Edward Stott</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-    <div id="eie-modules" style="display: none;">
-      <table>
-        <thead>
-          <tr>
-            <th>Module Code</th>
-            <th>Term</th>
-            <th>Module Title</th>
-            <th>Lecturer(s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>ELEC50002</td><td>Spring</td><td>Communications</td><td>Prof Deniz Gunduz</td></tr>
-          <tr><td>ELEC50004</td><td>Spring</td><td>Control Systems</td><td>Prof Thomas Parisini</td></tr>
-          <tr><td>ELEC50006</td><td>Autumn</td><td>Discrete Mathematics</td><td>Dr Dan Goodman</td></tr>
-          <tr><td>ELEC50009</td><td>Spring</td><td>Information Processing</td><td>Dr Aaron Zhao; Mr Sarim Baig</td></tr>
-          <tr><td>ELEC50010</td><td>Autumn & Spring</td><td>Instruction Architectures and Compilers</td><td>Dr John Wickerson; Prof Peter Cheung</td></tr>
-          <tr><td>ELEC50011A</td><td>Autumn</td><td>Mathematics for Engineers IIA</td><td>Dr Daniel Nucinkis; Dr Stefan Vlaski</td></tr>
-          <tr><td>ELEC50011B</td><td>Autumn</td><td>Mathematics for Engineers IIB</td><td>Dr Stefan Vlaski</td></tr>
-          <tr><td>ELEC50013</td><td>Autumn</td><td>Signals and Systems</td><td>Prof Patrick Naylor</td></tr>
-          <tr><td>ELEC50014</td><td>Autumn</td><td>Software Systems</td><td>Mr Sarim Baig</td></tr>
-          <tr><td>ELEC50015</td><td>Autumn & Spring</td><td>Electronics Design Project 2</td><td>Dr Edward Stott</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+      <!-- Societies Section -->
+      <section class="section">
+        <h2 class="section-title">Societies</h2>
+        <div class="society-grid">
+          <div class="society-item">
+            <a href="https://eesoc.com/" target="_blank">
+              <img src="images/eesoc.png" alt="EESoc">
+            </a>
+          </div>
+          <div class="society-item">
+            <a href="https://docsoc.co.uk/" target="_blank">
+              <img src="images/dosoc.jpg" alt="DocSoc">
+            </a>
+          </div>
+          <div class="society-item">
+            <a href="https://www.imperialcollegeunion.org/activities/a-to-z/swim-and-waterpolo" target="_blank">
+              <img src="images/ICLSWP.png" alt="Swim Club">
+            </a>
+          </div>
+          <div class="society-item">
+            <a href="https://investmentsoc.com/" target="_blank">
+              <img src="images/SEC_logo.png" alt="Investment Society">
+            </a>
+          </div>
+          <div class="society-item">
+            <a href="http://www.algosoc.com" target="_blank">
+              <img src="images/ICATS2.png" alt="Algo Trading Society">
+            </a>
+          </div>
+          <div class="society-item">
+            <a href="https://www.betasigmaclub.com/" target="_blank">
+              <img src="images/beta_sigma.jpg" alt="Beta Sigma">
+            </a>
+          </div>
+          <div class="society-item">
+            <a href="https://investmentsoc.com/qtcapital" target="_blank">
+              <img src="images/queens_tower_capital_logo.jpeg" alt="QT Capital">
+            </a>
+          </div>
+        </div>
+      </section>
 
-
-  <section>
-    <h2>Societies</h2>
-    <div class="society-logos">
-      <a href="https://eesoc.com/"><img src="images/eesoc.png" alt="EESoc"></a>
-      <a href="https://docsoc.co.uk/"><img src="images/dosoc.jpg" alt="DocSoc"></a>
-      <a href="https://www.imperialcollegeunion.org/activities/a-to-z/swim-and-waterpolo"><img src="images/ICLSWP.png" alt="Swim Club"></a>
-      <a href="https://investmentsoc.com/"><img src="images/SEC_logo.png" alt="Investment Society"></a>
-      <a href="http://www.algosoc.com"><img src="images/ICATS2.png" alt="Algo Trading Society"></a>
-      <a href="https://www.betasigmaclub.com/"><img src="images/beta_sigma.jpg" alt="Beta Sigma"></a>
-      <a href="https://investmentsoc.com/qtcapital"><img src="images/queens_tower_capital_logo.jpeg" alt="QT Capital"></a>
-    </div>
-  </section>
-
-  
-  <section class="work-experience">
-    <h2>Work Experience</h2>
-        <ul class="toggle-links">
-        <li>
-          <button class="toggle-btn open" data-target="long-term-exp">Long-Term Experience (Internships & Roles)</button>
-        </li>
-        <li>
+      <!-- Work Experience Section -->
+      <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="toggle-group">
+          <button class="toggle-btn active" data-target="long-term-exp">Long-Term Experience</button>
           <button class="toggle-btn" data-target="insights-exp">Insights & Masterclasses</button>
-        </li>
-      </ul>
+        </div>
 
-    <div id="long-term-exp" style="display: block;">
-      <ul>
-        <li>
-          <img src="images/stonex_logo.jpeg" alt="StoneX Logo">
-          <div>
-            <h3><a href="https://www.stonex.com/en/">StoneX</a></h3>
-            <p>Summer 2025 – 10 weeks internship, Risk Software Developer Intern</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/icbc_standard_bank_plc_logo.jpg" alt="ICBC Logo">
-          <div>
-            <h3><a href="https://www.icbcstandard.com/">ICBC Standard Bank</a></h3>
-            <div class="job-header">
-              <p class="job-summary">Summer 2024 – 12 weeks internship, Fixed Income Settlements Intern</p>
-              <button class="nested-toggle">▶ Show more</button>
+        <div id="long-term-exp" class="toggle-content active">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/stonex_logo.jpeg" alt="StoneX Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">StoneX</h3>
+                  <p class="experience-period">Summer 2025 – 10 weeks internship, Risk Software Developer Intern</p>
+                </div>
+              </div>
             </div>
-            <div class="nested-content" style="display: none; margin-top: 5px;">
-              <ul>
-                <li>• Use of softwares such as Calypso, Murex, Euroclear, CAM, JIRA</li> 
-                <li>• Automation of settlement reports for FX confirmations & fails reports for securities using VBA </li>
-                <li>• Gained deep insight into operational risk as well as commodities, fixed income & currencies in emerging markets</li>
-                <li>• Prepared presentations on swaps & other derivatives, FX, as well as securities to senior management</li>
-                <li>• Management Information Project on quantifying & linking settlement fails & disruptions using several metrics, as well as merging daily data and risk from different teams in order to provide a better insight to Operations Management</li>
-                <li>• Recalculated the team’s STP rate, tracked daily trade volumes, quantified manual interventions to give senior management a better view of the team’s activities</li>
-              </ul>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/icbc_standard_bank_plc_logo.jpg" alt="ICBC Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">ICBC Standard Bank</h3>
+                  <p class="experience-period">Summer 2024 – 12 weeks internship, Fixed Income Settlements Intern</p>
+                </div>
+              </div>
+              <button class="expand-btn" onclick="toggleExpanded(this)">▶ Show Details</button>
+              <div class="expanded-content">
+                <ul>
+                  <li>Use of softwares such as Calypso, Murex, Euroclear, CAM, JIRA</li>
+                  <li>Automation of settlement reports for FX confirmations & fails reports for securities using VBA</li>
+                  <li>Gained deep insight into operational risk as well as commodities, fixed income & currencies in emerging markets</li>
+                  <li>Prepared presentations on swaps & other derivatives, FX, as well as securities to senior management</li>
+                  <li>Management Information Project on quantifying & linking settlement fails & disruptions using several metrics</li>
+                  <li>Recalculated the team's STP rate, tracked daily trade volumes, quantified manual interventions</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/queens_tower_capital_logo.jpeg" alt="QT Cap Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Queen's Tower Capital</h3>
+                  <p class="experience-period">November 2024 – Present: Quantitative Analyst</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/KSP.jpeg" alt="KSP Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Karman Space Program</h3>
+                  <p class="experience-period">January 2024 – Present: Systems and Operations Engineer</p>
+                </div>
+              </div>
             </div>
           </div>
-        </li>
-        </li>
-        <li>
-          <img src="images/queens_tower_capital_logo.jpeg" alt="QT Cap Logo">
-          <div>
-            <h3><a href="https://investmentsoc.com/qtcapital">Queen's Tower Capital</a></h3>
-            <p>November 2024 – Present: Quantitative Analyst</p>
+        </div>
+
+        <div id="insights-exp" class="toggle-content">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/de_shaw_logo.jpeg" alt="DE Shaw Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">DE Shaw</h3>
+                  <p class="experience-period">April 2025: DE Shaw - Spring Insight</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/susquehanna_sig_logo.jpeg" alt="SIG Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Susquehanna SIG</h3>
+                  <p class="experience-period">April 2025: Susquehanna - Spring Insight</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/imc_logo.jpeg" alt="IMC Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">IMC</h3>
+                  <p class="experience-period">September 2024: IMC Trading Masterclass</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/citadel_llc_logo.jpeg" alt="Citadel Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Citadel</h3>
+                  <p class="experience-period">March 2024: Discover Citadel - Spring Insight</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/moodys_logo.jpeg" alt="Moodys Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Moody's</h3>
+                  <p class="experience-period">March 2024: EMEA Spring Insight Program – Finance & Tech</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/BA.jpeg" alt="British Airways Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">British Airways</h3>
+                  <p class="experience-period">February 2024: Engineering Spring Insight</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/loreal_logo.jpg" alt="L'Oreal Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">L'Oréal</h3>
+                  <p class="experience-period">March 2024: Spring Insight Week</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="images/4most_logo.jpg" alt="4most Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">4most</h3>
+                  <p class="experience-period">March 2024: Spring Insight</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </li>
-        <li>
-          <img src="images/KSP.jpeg" alt="KSP Logo">
-          <div>
-            <h3><a href="https://www.karmanspace.co.uk/">Karman Space Program</a></h3>
-            <p>January 2024 – Present: Systems and Operations Engineer</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </section>
 
-    <div id="insights-exp" style="display: none;">
-      <ul>
-        <li>
-          <img src="images/de_shaw_logo.jpeg" alt="logo DE Shaw">
-          <div>
-            <h3><a href="https://www.deshaw.com/">DE Shaw</a></h3>
-            <p>April 2025: DE Shaw - Spring Insight</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/susquehanna_sig_logo.jpeg" alt="logo SIG">
-          <div>
-            <h3><a href="https://sig.com/">Susquehanna SIG</a></h3>
-            <p>April 2025: Susquehanna - Spring Insight</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/imc_logo.jpeg" alt="logo IMC">
-          <div>
-            <h3><a href="https://www.imc.com/us/">IMC</a></h3>
-            <p>September 2024: IMC Trading Masterclass</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/citadel_llc_logo.jpeg" alt="logo Citadel">
-          <div>
-            <h3><a href="https://www.citadel.com/careers/students/discover-citadel/">Citadel</a></h3>
-            <p>March 2024: Discover Citadel - Spring Insight</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/moodys_logo.jpeg" alt="logo Moodys">
-          <div>
-            <h3><a href="https://careers.moodys.com/event/moodys-emea-spring-insight-program-2024-3-day-virtual-exploration-of-finance-and-technology/">Moody's</a></h3>
-            <p>March 2024: EMEA Spring Insight Program – Finance & Tech</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/BA.jpeg" alt="logo British Airways">
-          <div>
-            <h3><a href="https://www.britishairways.com/">British Airways</a></h3>
-            <p>February 2024: Engineering Spring Insight</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/loreal_logo.jpg" alt="logo L'Oreal">
-          <div>
-            <h3><a href="https://careers.loreal.com/en_US/content/UKIntern">L'Oréal</a></h3>
-            <p>March 2024: Spring Insight Week</p>
-          </div>
-        </li>
-        <li>
-          <img src="images/4most_logo.jpg" alt="logo 4most">
-          <div>
-            <h3><a href="https://4-most.co.uk/internships/">4most</a></h3>
-            <p>March 2024: Spring Insight</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
+      <!-- Projects Section -->
+      <section class="section">
+        <h2 class="section-title">Projects & Interests</h2>
+        <div class="toggle-group">
+          <button class="toggle-btn" data-target="projects-finance">Finance</button>
+          <button class="toggle-btn" data-target="projects-engineering">Engineering</button>
+          <button class="toggle-btn" data-target="projects-programming">Programming</button>
+          <button class="toggle-btn" data-target="projects-data">Data Science & ML</button>
+          <button class="toggle-btn" data-target="projects-sports">Sports</button>
+        </div>
 
-
- <section class="projects">
-  <h2>Projects & Interests</h2>
-  <ul class="toggle-links">
-    <li><button class="toggle-btn" data-target="projects-finance">Finance</button></li>
-    <li><button class="toggle-btn" data-target="projects-engineering">Engineering</button></li>
-    <li><button class="toggle-btn" data-target="projects-programming">Programming</button></li>
-    <li><button class="toggle-btn" data-target="projects-data">Maths, Data Science and Machine Learning</button></li>
-    <li><button class="toggle-btn" data-target="projects-sports">Sports</button></li>
-  </ul>
-
- <div id="projects-finance" style="display: none;">
-  <div class="project-grid-container">
-    <div class="project-column">
-      <ul>
-        <li>- Security Education Certificate&nbsp;<a href="https://investmentsoc.com/"><img src="images/SEC_logo.png" alt="logo SEC" width="15" height="15"></a>&nbsp;<a href="images/SEC certif.jpg"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-        <li>- Algorithmic Trading Course Certificate&nbsp;<a href="http://www.algosoc.com/"><img src="images/ICATS2.png" alt="logo icats" width="15" height="15"></a>&nbsp;<a href="images/AlgoCertificate_Antoine_Divet.pdf"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-        <li>- Trading Algorithms&nbsp;<a href="https://www.coursera.org/learn/trading-algorithm"><img src="images/logo_coursera.png" alt="logo coursera" width="15" height="15"></a>&nbsp;<a href="https://www.coursera.org/account/accomplishments/certificate/3CCDJ4U96D3R"><img src="images/logo certificate.png" alt="logo coursera" width="15" height="15"></a></li> 
-        <li>
-          - Black-Scholes <a href="projets/display_Black_Scholes.html"><img src="images/html logo.jpg" alt="logo html" width="15"></a>
-          <div class="job-header">
-            <button class="nested-toggle">▶ Show more</button>
-          </div>
-          <div class="nested-content" style="display: none;">
-            <ul>
-              <li>• Developed a Python implementation of the Black-Scholes model using NumPy and Matplotlib</li>
-              <li>• Modeled European call option prices based on underlying asset and volatility</li>
-              <li>• Gained practical insight into the Black-Scholes formula and “Greeks” (delta, gamma, etc.)</li>
-              <li>• Explored how options are priced and which parameters affect valuation (e.g. risk-free rate, time to maturity)</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="project-column">
-      <ul>
-        <li>- Quantitative Research (JP Morgan Chase & Co)&nbsp;<a href="https://www.theforage.com/simulations/jpmorgan/quantitative-research-11oc"><img src="images/forage_logo.jpg" alt="logo forage" width="15" height="15"></a>&nbsp;<a href="images/Forage_QR_JPM.pdf"><img src="images/logo certificate.png" alt="logo forage" width="15" height="15"></a></li> 
-        <li>- Global Markets Trading (Standard Bank)&nbsp;<a href="https://www.theforage.com/simulations/standard-bank/global-markets-trading-ehpu"><img src="images/forage_logo.jpg" alt="logo forage" width="15" height="15"></a>&nbsp;<a href="images/Forage_GMT_Standard.pdf"><img src="images/logo certificate.png" alt="logo forage" width="15" height="15"></a></li>
-        <li>- Asset Management (JP Morgan Chase & Co)&nbsp;<a href="https://www.theforage.com/simulations/jpmorgan/asset-management-wfo5"><img src="images/forage_logo.jpg" alt="logo forage" width="15" height="15"></a>&nbsp;<a href="images/Forage_AM_JPM.pdf"><img src="images/logo certificate.png" alt="logo forage" width="15" height="15"></a></li> 
-        <li>- Python and Statistics for Financial Analysis&nbsp;<a href="https://www.coursera.org/learn/statistics-for-financial-analysis"><img src="images/logo_coursera.png" alt="logo coursera" width="15" height="15"></a>&nbsp;<a href="images/FinancePythonCert.jpg"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div id="projects-engineering" style="display: none;">
-  <div class="project-grid-container">
-    <div class="project-column">
-      <ul>
-        <li>- Engineering Systems in Motion: Dynamics of Particles and Bodies in 2D Motion&nbsp;<a href="https://www.coursera.org/learn/dynamics?=" ><img src="images/logo_coursera.png" alt="logo coursera" width="15" height="15"></a>&nbsp;<a href="https://www.coursera.org/account/accomplishments/certificate/VFVHE8VEULHR"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-        <li>- Applications in Engineering Mechanics&nbsp;<a href="https://www.coursera.org/learn/engineering-mechanics-statics-2?="><img src="images/logo_coursera.png" alt="logo coursera" width="15" height="15"></a>&nbsp;<a href="https://www.coursera.org/account/accomplishments/certificate/FPTVE3HWYV8G"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-      </ul>
-    </div>
-    <div class="project-column">
-      <ul>
-        <li>- Introduction to Engineering Mechanics&nbsp;<a href="https://www.coursera.org/engineering-mechanics-statics?="><img src="images/logo_coursera.png" alt="logo coursera" width="15" height="15"></a>&nbsp;<a href="https://www.coursera.org/account/accomplishments/certificate/TQ3VH6B3M6QR"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-        <li>- Biomedical Engineering (Electronics) Residential Taster Course <a href="https://www.taster.ecs.soton.ac.uk/home"><img src="images/Southamption logo.jpg" alt="logo Southamption" width="15" height="15"></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div id="projects-data" style="display: none;">
-  <div class="project-grid-container">
-    <div class="project-column">
-      <ul>
-        <li>- Mathematics for Machine Learning Specialization (Linear Algebra, Calculus, PCA)&nbsp;<a href="https://www.coursera.org/specializations/mathematics-machine-learning"><img src="images/logo_coursera.png" alt="logo coursera" width="15" height="15"></a>&nbsp;<a href="images/MMML Certif.jpg"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-        <li>- Mathematical Statistics for Data Science <a href="images/Statistics certif.jpg"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-        <li>- Stochastic Calculus <a href="images/Stochastic certif.jpg"><img src="images/logo certificate.png" alt="logo certif" width="15" height="15"></a></li>
-      </ul>
-    </div>
-    <div class="project-column">
-      <ul>
-        <li>- Data Science Projects (e.g. forecasting, regression) <a href="projets/DataScienceProjects.html"><img src="images/project.png" alt="logo project" width="15" height="15"></a></li>
-        <li>- Kaggle Competitions <a href="https://www.kaggle.com/antoinedivet"><img src="images/kaggle logo.png" alt="logo kaggle" width="15" height="15"></a></li>
-        <li>- QRT Algothon (Nov 2023)
-          <div class="job-header">
-            <button class="nested-toggle">▶ Show more</button>
-          </div>
-          <div class="nested-content" style="display: none;">
-            <ul>
-              <li>• Modeled electricity prices in France and Germany based on weather, energy markets, geopolitics, and cross-border flows</li>
-              <li>• Metric: Spearman’s correlation to measure price prediction accuracy</li>
-              <li>• Performed exploratory data analysis (EDA) using interpolation (`interp1d`), correlation matrices, and Plotly graphs</li>
-              <li>• Trained and compared machine learning models such as Random Forest and XGBoost on structured feature data</li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          - IBM Z Datathon (Oct 2023)
-          <div class="job-header">
-            <button class="nested-toggle">▶ Show more</button>
-          </div>
-          <div class="nested-content" style="display: none;">
-            <ul>
-              <li>• Built a spam classifier for emails and SMS using NLP techniques and preprocessed datasets</li>
-              <li>• Trained multiple models: Naive Bayes, Support Vector Machine, Logistic Regression, and Random Forest</li>
-              <li>• Compared performance to select the most accurate spam filter model</li>
-              <li>• Developed in Python using scikit-learn and NLP libraries</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>    
-  </div>
-</div>
-
-
-  <div id="projects-programming" style="display: none;">
-    <div class="project-grid-container">
-      <div class="project-column">
-        <h4>Python</h4>
-        <ul>
-          <li>- CS50 Python <img src="images/cs50 logo.jpg" width="15"> <a href="images/CS50 certif.jpg"><img src="images/logo certificate.png" width="15"></a></li>
-          <li>- Learn to Program&nbsp; <img src="images/logo_coursera.png" width="15"> <a href="https://www.coursera.org/account/accomplishments/certificate/598Z6U99A363"><img src="images/logo certificate.png" width="15"></a></li>
-          <li>- Pandas <img src="images/kaggle logo.png" width="15"> <a href="https://www.kaggle.com/learn/certification/antoinedivet/pandas"><img src="images/logo certificate.png" width="15"></a></li>
-          <li>- Data Visualization <img src="images/kaggle logo.png" width="15"> <a href="https://www.kaggle.com/learn/certification/antoinedivet/data-visualization"><img src="images/logo certificate.png" width="15"></a></li>
-          <li>- Python <img src="images/kaggle logo.png" width="15"> <a href="https://www.kaggle.com/learn/certification/antoinedivet/python"><img src="images/logo certificate.png" width="15"></a></li>
-          <li>- Projectile Simulation <a href="projets/Simulation_Trajectoire_NSI_Antoine_DIVET.html"><img src="images/html logo.jpg" width="15"></a> <a href="https://github.com/aa6dcc/TrajectoireAvecFrottements"><img src="images/GitHub.png" width="15"></a></li>
-        </ul>
-        <h4>Excel</h4>
-        <ul>
-          <li>- Excel Skills for Business Job Simulation (Goldman Sachs)&nbsp;<img src="images/forage_logo.jpg" width="15"> <a href="images/Forage_XL_GS.pdf"><img src="images/logo certificate.png" width="15"></a></li>
-          <li>- Excel Skills Job Simulation (JP Morgan Chase & Co)&nbsp; <img src="images/forage_logo.jpg" width="15"> <a href="images/Forage_XL_JPM.pdf"><img src="images/logo certificate.png" width="15"></a></li>
-        </ul>
-      </div>
-
-    <div class="project-column">
-      <h4>C++</h4>
-      <ul>
-        <li>- Object-Oriented Data Structures in C++&nbsp; <img src="images/logo_coursera.png" width="15"> <a href="https://www.coursera.org/account/accomplishments/verify/8TI854PYSAIH"><img src="images/logo certificate.png" width="15"></a></li>
-      </ul>
-
-      <h4>Other</h4>
-      <ul>
-        <li>
-          - C90 Compiler&nbsp;
-          <div class="job-header">
-            <button class="nested-toggle">▶ Show more</button>
-          </div>
-          <div class="nested-content" style="display: none;">
-            <ul>
-              <li>• Built a C90 compiler as a duo targeting the RV64 RISC-V architecture, translating ANSI C into RISC-V assembly</li>
-              <li>• Includes lexer, parser, and AST builder designed for C90 syntax</li>
-              <li>• Semantic analysis with a scoped symbol table for variable declarations, type checking, and shadowing</li>
-              <li>• Supports control flow constructs (if, while, for), arithmetic/logical expressions, function calls, and struct access</li>
-              <li>• RISC-V code generation with proper calling conventions, stack/register management, and memory alignment</li>
-              <li>• Docker for consistent build/runtime environment</li>
-              <li>• Used Jira to track tasks and team progress</li>
-            </ul>
-          </div>
-        </li>
-
-        <li>
-          - FPGA-based Video Game: Laser Grids&nbsp;
-          <div class="job-header">
-            <button class="nested-toggle">▶ Show more</button>
-          </div>
-          <div class="nested-content" style="display: none;">
-            <ul>
-              <li>• Cooperative 2-player puzzle game using accelerometer-based controllers on FPGA</li>
-              <li>• AES encryption and FIR filter modules implemented in Verilog on DE10-Lite FPGA</li>
-              <li>• Game logic built in Unity (C#) with authoritative physics server and event-driven scripting</li>
-              <li>• Multithreaded C++ TCP server for login/session management; UDP for real-time gameplay</li>
-              <li>• Real-time accelerometer input processed with FIR filter for smooth character movement</li>
-              <li>• Hosted game servers on AWS EC2; DynamoDB for users/stats/achievements using partition/sort keys and GSI</li>
-              <li>• Personally built the TCP server (with PuTTY testing) and implemented DynamoDB schema to support fast queries</li>
-            </ul>
-          </div>
-        </li>
-
-        <li>
-          - Heat Equation <a href="https://github.com/aa6dcc/Heat-Equation"><img src="images/GitHub.png" width="15"></a>&nbsp;
-          <div class="job-header">
-            <button class="nested-toggle">▶ Show more</button>
-          </div>
-          <div class="nested-content" style="display: none;">
-            <ul>
-              <li>• Analyzed the heat equation through multiple computational approaches: Finite Difference Methods, Monte Carlo simulations, and Runge-Kutta integration</li>
-              <li>• Applied Fourier series and Laplace transforms for estimating solutions</li>
-              <li>• Incorporated visualization of solution bounds and thermal diffusion using Python plotting libraries</li>
-              <li>• Used NumPy, SciPy, SymPy, Matplotlib & Plotly extensively</li>
-              <li>• Reinforced understanding of PDEs and numerical methods while exploring different representations</li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          - RISC-V CPU <a href="https://github.com/aa6dcc/RISC-V-Team2"><img src="images/GitHub.png" width="15"></a>&nbsp;
-          <div class="job-header">
-            <button class="nested-toggle">▶ Show more</button>
-          </div>
-          <div class="nested-content" style="display: none;">
-            <ul>
-              <li>• Designed a full RISC-V 32i processor in SystemVerilog as part of a 4-person team (Nov–Dec 2024)</li>
-              <li>• Implemented 5-stage pipelining, two-way set associative cache, and branch prediction</li>
-              <li>• Built and tested modules for data memory, caching, branch prediction, and top-level integration</li>
-              <li>• Developed testbenches in C++ and SystemVerilog, wrote assembly for instruction validation</li>
-              <li>• Used GTKWave to debug digital signals and shell scripting to automate simulations</li>
-            </ul>
-          </div>
-        </li>
-        <li>- React Basics&nbsp; <img src="images/logo_coursera.png" width="15"></li>
-        <li>- Databases and SQL for Data Science with Python&nbsp; <img src="images/logo_coursera.png" width="15"></li>
-        <li>- LaTeX Basics&nbsp; <img src="images/logo_coursera.png" width="15"> <a href="https://www.coursera.org/account/accomplishments/certificate/PASXETEKUW8Z"><img src="images/logo certificate.png" width="15"></a></li>
-      </ul>
-    </div>
-
-    </div>
-  </div>
-
-  <div id="projects-sports" style="display: none;">
-    <div class="project-grid-container">
-      <div class="project-column">
-        <h4>Swimming</h4>
-        <ul>
-          <li>- Represented Imperial College at BUCS 2023 <a href="https://www.bucs.org.uk/events-page/swimming-para-swimming-short-course-championships-2023-24.html">link</a></li>
-          <li>- Qualified for English Nationals, Euro Meet <a href="https://www.swimming.org/sport/national-events/">EN</a> <a href="http://www.euromeet.lu/">EM</a></li>
-          <li>- Outstanding Individual Boy Award 2019, 2 gold and 1 silver medal at London Youth Games <a href="https://www.londonyouthgames.org/sports/swimming/">LYG</a></li>
-        </ul>
-      </div>
-      <div class="project-column">
-        <h4>Chess</h4>
-        <ul>
-          <li>- Ranked 1663 ECF <a href="https://rating.englishchess.org.uk/v2/new/player.php?ECF_code=305189E">rating</a></li>
-          <li>- 3 Tournaments won including <a href="https://chess-results.com/tnr400139.aspx?lan=1&art=4">LJCC</a></li>
-          <li>- Junior squad coach and online chess commentator</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section>
-  <h2>Contact</h2>
-  <p>Email: antoine.divet23 [at] imperial [dot] ac [dot] uk</p>
-</section>
-
-<footer style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #666; font-style: italic;">
-  Last updated: June 2025
-</footer>
-
-<script>
-  document.querySelectorAll(".toggle-btn").forEach(button => {
-    button.addEventListener("click", () => {
-      const targetId = button.dataset.target;
-      const content = document.getElementById(targetId);
-
-      const isOpen = content.style.display === "block";
-      content.style.display = isOpen ? "none" : "block";
-      button.classList.toggle("open", !isOpen);
-    });
-  });
-
-  document.querySelectorAll(".nested-toggle").forEach(button => {
-    button.addEventListener("click", () => {
-      const parent = button.closest("div");
-      const content = parent?.nextElementSibling;
-      if (!content || !content.classList.contains("nested-content")) return;
-
-      const isOpen = content.style.display === "block";
-      content.style.display = isOpen ? "none" : "block";
-      button.textContent = isOpen ? "▶ Show more" : "▼ Hide details";
-    });
-  });
-
-
-</script>
-
-
-
-</body>
-</html>
+        <div id="projects-finance" class="toggle-content">
+          <div class="projects-grid">
+            <div class="project-category">
+              <h4>
