@@ -803,6 +803,18 @@
                 toggleExpanded(e.target);
             }
         });
+        
+        // Also handle the onclick attribute that exists in the HTML
+        const expandButtons = document.querySelectorAll('.expand-btn');
+        expandButtons.forEach(button => {
+            // Remove any existing onclick handlers to avoid conflicts
+            button.removeAttribute('onclick');
+            
+            // Add our event listener
+            button.addEventListener('click', function() {
+                toggleExpanded(this);
+            });
+        });
     }
 
     function toggleExpanded(button) {
@@ -826,29 +838,15 @@
     }
 
     function setDefaultActiveStates() {
-        // Set default active state for work experience (Long-Term Experience)
-        const longTermBtn = document.querySelector('[data-target="long-term-exp"]');
-        const longTermContent = document.getElementById('long-term-exp');
+        // Remove any existing active states to ensure everything starts collapsed
+        const allToggleButtons = document.querySelectorAll('.toggle-btn');
+        const allToggleContents = document.querySelectorAll('.toggle-content');
         
-        if (longTermBtn && longTermContent) {
-            longTermBtn.classList.add('active');
-            longTermContent.classList.add('active');
-        }
+        allToggleButtons.forEach(btn => btn.classList.remove('active'));
+        allToggleContents.forEach(content => content.classList.remove('active'));
         
-        // Set default active state for first course module if no default is set
-        const firstCourseBtn = document.querySelector('[data-target="eee-modules"]');
-        const firstCourseContent = document.getElementById('eee-modules');
-        
-        if (firstCourseBtn && firstCourseContent) {
-            // Check if no other button in the same section is active
-            const courseSection = firstCourseBtn.closest('.section');
-            const activeButtons = courseSection.querySelectorAll('.toggle-btn.active');
-            
-            if (activeButtons.length === 0) {
-                firstCourseBtn.classList.add('active');
-                firstCourseContent.classList.add('active');
-            }
-        }
+        // Note: Everything starts collapsed by default now
+        // Users need to click buttons to expand sections
     }
 
     // Smooth scrolling for any anchor links (if added later)
@@ -926,7 +924,6 @@
         // Add a small delay to ensure all elements are rendered
         setTimeout(initializeScrollAnimations, 100);
     });
-  </script>
 
 </body>
 </html>
