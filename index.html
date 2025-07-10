@@ -5,14 +5,337 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antoine Divet</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-section {
+      color: white;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      object-fit: cover;
+    }
+
+    .name {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .social-links a img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover img {
+      transform: scale(1.1);
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      font-size: 1.8em;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .toggle-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .toggle-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-btn.active {
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .toggle-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .toggle-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .society-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .society-item {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .society-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .society-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .experience-card {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .experience-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .experience-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+
+    .experience-title {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .experience-period {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .expand-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .expand-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .expanded-content {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .expanded-content.active {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; max-height: 0; }
+      to { opacity: 1; max-height: 500px; }
+    }
+
+    .expanded-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .expanded-content li {
+      padding: 5px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .expanded-content li:before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: #667eea;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      .header {
+        padding: 20px;
+      }
+
+      .name {
+        font-size: 2em;
+      }
+
+      .title {
+        font-size: 1em;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .toggle-group {
+        flex-direction: column;
+      }
+
+      .toggle-btn {
+        width: 100%;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .society-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <!-- Header Section -->
     <div class="header">
       <div class="profile-section">
-        <img src="images/pdp.png" alt="Profile Picture" class="profile-img">
+        <img src="https://via.placeholder.com/150x150/667eea/ffffff?text=AD" alt="Profile Picture" class="profile-img">
         <h1 class="name">Antoine Divet</h1>
         <p class="title">
           Incoming Third year student in Computer Engineering 
@@ -21,13 +344,13 @@
         </p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/antoine-divet-674a1827b/" target="_blank">
-            <img src="images/LinkedIn-Logo.png" alt="LinkedIn">
+            <img src="https://via.placeholder.com/40x40/0077b5/ffffff?text=Li" alt="LinkedIn">
           </a>
           <a href="https://github.com/aa6dcc" target="_blank">
-            <img src="images/GitHub.png" alt="GitHub">
+            <img src="https://via.placeholder.com/40x40/333333/ffffff?text=GH" alt="GitHub">
           </a>
-          <a href="documents/CV - Antoine DIVET github.io.pdf" target="_blank">
-            <img src="images/PDF_file_icon.svg.png" alt="CV">
+          <a href="#" target="_blank">
+            <img src="https://via.placeholder.com/40x40/ff0000/ffffff?text=PDF" alt="CV">
           </a>
         </div>
       </div>
@@ -99,37 +422,37 @@
         <div class="society-grid">
           <div class="society-item">
             <a href="https://eesoc.com/" target="_blank">
-              <img src="images/eesoc.png" alt="EESoc">
+              <img src="https://via.placeholder.com/80x80/667eea/ffffff?text=EE" alt="EESoc">
             </a>
           </div>
           <div class="society-item">
             <a href="https://docsoc.co.uk/" target="_blank">
-              <img src="images/dosoc.jpg" alt="DocSoc">
+              <img src="https://via.placeholder.com/80x80/764ba2/ffffff?text=DS" alt="DocSoc">
             </a>
           </div>
           <div class="society-item">
             <a href="https://www.imperialcollegeunion.org/activities/a-to-z/swim-and-waterpolo" target="_blank">
-              <img src="images/ICLSWP.png" alt="Swim Club">
+              <img src="https://via.placeholder.com/80x80/4a90e2/ffffff?text=SW" alt="Swim Club">
             </a>
           </div>
           <div class="society-item">
             <a href="https://investmentsoc.com/" target="_blank">
-              <img src="images/SEC_logo.png" alt="Investment Society">
+              <img src="https://via.placeholder.com/80x80/f5a623/ffffff?text=IS" alt="Investment Society">
             </a>
           </div>
           <div class="society-item">
             <a href="http://www.algosoc.com" target="_blank">
-              <img src="images/ICATS2.png" alt="Algo Trading Society">
+              <img src="https://via.placeholder.com/80x80/7ed321/ffffff?text=AT" alt="Algo Trading Society">
             </a>
           </div>
           <div class="society-item">
             <a href="https://www.betasigmaclub.com/" target="_blank">
-              <img src="images/beta_sigma.jpg" alt="Beta Sigma">
+              <img src="https://via.placeholder.com/80x80/d0021b/ffffff?text=BS" alt="Beta Sigma">
             </a>
           </div>
           <div class="society-item">
             <a href="https://investmentsoc.com/qtcapital" target="_blank">
-              <img src="images/queens_tower_capital_logo.jpeg" alt="QT Capital">
+              <img src="https://via.placeholder.com/80x80/9013fe/ffffff?text=QT" alt="QT Capital">
             </a>
           </div>
         </div>
@@ -139,15 +462,15 @@
       <section class="section">
         <h2 class="section-title">Work Experience</h2>
         <div class="toggle-group">
-          <button class="toggle-btn active" data-target="long-term-exp">Long-Term Experience</button>
+          <button class="toggle-btn" data-target="long-term-exp">Long-Term Experience</button>
           <button class="toggle-btn" data-target="insights-exp">Insights & Masterclasses</button>
         </div>
 
-        <div id="long-term-exp" class="toggle-content active">
+        <div id="long-term-exp" class="toggle-content">
           <div class="experience-grid">
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/stonex_logo.jpeg" alt="StoneX Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/667eea/ffffff?text=SX" alt="StoneX Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">StoneX</h3>
                   <p class="experience-period">Summer 2025 – 10 weeks internship, Risk Software Developer Intern</p>
@@ -157,13 +480,13 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/icbc_standard_bank_plc_logo.jpg" alt="ICBC Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/764ba2/ffffff?text=IC" alt="ICBC Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">ICBC Standard Bank</h3>
                   <p class="experience-period">Summer 2024 – 12 weeks internship, Fixed Income Settlements Intern</p>
                 </div>
               </div>
-              <button class="expand-btn" onclick="toggleExpanded(this)">▶ Show Details</button>
+              <button class="expand-btn">▶ Show Details</button>
               <div class="expanded-content">
                 <ul>
                   <li>Use of softwares such as Calypso, Murex, Euroclear, CAM, JIRA</li>
@@ -178,7 +501,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/queens_tower_capital_logo.jpeg" alt="QT Cap Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/9013fe/ffffff?text=QT" alt="QT Cap Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">Queen's Tower Capital</h3>
                   <p class="experience-period">November 2024 – Present: Quantitative Analyst</p>
@@ -188,7 +511,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/KSP.jpeg" alt="KSP Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/f5a623/ffffff?text=KS" alt="KSP Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">Karman Space Program</h3>
                   <p class="experience-period">January 2024 – Present: Systems and Operations Engineer</p>
@@ -202,7 +525,7 @@
           <div class="experience-grid">
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/de_shaw_logo.jpeg" alt="DE Shaw Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/000000/ffffff?text=DS" alt="DE Shaw Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">DE Shaw</h3>
                   <p class="experience-period">April 2025: DE Shaw - Spring Insight</p>
@@ -212,7 +535,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/susquehanna_sig_logo.jpeg" alt="SIG Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/4a90e2/ffffff?text=SIG" alt="SIG Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">Susquehanna SIG</h3>
                   <p class="experience-period">April 2025: Susquehanna - Spring Insight</p>
@@ -222,7 +545,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/imc_logo.jpeg" alt="IMC Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/7ed321/ffffff?text=IMC" alt="IMC Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">IMC</h3>
                   <p class="experience-period">September 2024: IMC Trading Masterclass</p>
@@ -232,7 +555,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/citadel_llc_logo.jpeg" alt="Citadel Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/d0021b/ffffff?text=CIT" alt="Citadel Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">Citadel</h3>
                   <p class="experience-period">March 2024: Discover Citadel - Spring Insight</p>
@@ -242,7 +565,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/moodys_logo.jpeg" alt="Moodys Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/ff6b6b/ffffff?text=MD" alt="Moodys Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">Moody's</h3>
                   <p class="experience-period">March 2024: EMEA Spring Insight Program – Finance & Tech</p>
@@ -252,7 +575,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/BA.jpeg" alt="British Airways Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/1e3a8a/ffffff?text=BA" alt="British Airways Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">British Airways</h3>
                   <p class="experience-period">February 2024: Engineering Spring Insight</p>
@@ -262,7 +585,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/loreal_logo.jpg" alt="L'Oreal Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/ec4899/ffffff?text=LO" alt="L'Oreal Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">L'Oréal</h3>
                   <p class="experience-period">March 2024: Spring Insight Week</p>
@@ -272,7 +595,7 @@
 
             <div class="experience-card">
               <div class="experience-header">
-                <img src="images/4most_logo.jpg" alt="4most Logo" class="experience-logo">
+                <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=4M" alt="4most Logo" class="experience-logo">
                 <div>
                   <h3 class="experience-title">4most</h3>
                   <p class="experience-period">March 2024: Spring Insight</p>
@@ -294,25 +617,90 @@
           <button class="toggle-btn" data-target="projects-sports">Sports</button>
         </div>
 
+        <div id="projects-finance" class="toggle-content">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="https://via.placeholder.com/50x50/f59e0b/ffffff?text=₿" alt="Finance Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Financial Projects</h3>
+                  <p class="experience-period">Various financial modeling and analysis projects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div id="projects-engineering" class="toggle-content">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="https://via.placeholder.com/50x50/10b981/ffffff?text=⚙️" alt="Engineering Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Engineering Projects</h3>
+                  <p class="experience-period">Hardware and software engineering projects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects-programming" class="toggle-content">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="https://via.placeholder.com/50x50/8b5cf6/ffffff?text=💻" alt="Programming Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Programming Projects</h3>
+                  <p class="experience-period">Various coding projects and applications</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects-data" class="toggle-content">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="https://via.placeholder.com/50x50/ef4444/ffffff?text=📊" alt="Data Science Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Data Science & ML Projects</h3>
+                  <p class="experience-period">Machine learning and data analysis projects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects-sports" class="toggle-content">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="experience-header">
+                <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=🏊" alt="Sports Logo" class="experience-logo">
+                <div>
+                  <h3 class="experience-title">Sports & Fitness</h3>
+                  <p class="experience-period">Swimming and fitness activities</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
   <script>
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
-        
-        // Initialize all functionality
         initializeToggleFunctionality();
         initializeExpandFunctionality();
-        setDefaultActiveStates();
         initializeSmoothScrolling();
         initializeKeyboardNavigation();
-        
-        // Add a small delay for scroll animations to ensure all elements are rendered
         setTimeout(initializeScrollAnimations, 100);
     });
 
     function initializeToggleFunctionality() {
-        // Get all toggle buttons
         const toggleButtons = document.querySelectorAll('.toggle-btn');
         
         toggleButtons.forEach(button => {
@@ -327,39 +715,30 @@
                 const siblingButtons = parentSection.querySelectorAll('.toggle-btn');
                 const siblingContents = parentSection.querySelectorAll('.toggle-content');
                 
+                // Check if the clicked button is already active
+                const isCurrentlyActive = this.classList.contains('active');
+                
                 // Remove active class from all sibling buttons
                 siblingButtons.forEach(btn => btn.classList.remove('active'));
                 
                 // Hide all sibling content
                 siblingContents.forEach(content => content.classList.remove('active'));
                 
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Show target content
-                targetContent.classList.add('active');
+                // If the button wasn't active, make it active and show its content
+                if (!isCurrentlyActive) {
+                    this.classList.add('active');
+                    targetContent.classList.add('active');
+                }
+                // If it was active, it remains inactive (collapsed state)
             });
         });
     }
 
     function initializeExpandFunctionality() {
-        // Handle expand buttons that might be added dynamically
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('expand-btn')) {
                 toggleExpanded(e.target);
             }
-        });
-        
-        // Also handle the onclick attribute that exists in the HTML
-        const expandButtons = document.querySelectorAll('.expand-btn');
-        expandButtons.forEach(button => {
-            // Remove any existing onclick handlers to avoid conflicts
-            button.removeAttribute('onclick');
-            
-            // Add our event listener
-            button.addEventListener('click', function() {
-                toggleExpanded(this);
-            });
         });
     }
 
@@ -383,19 +762,6 @@
         }
     }
 
-    function setDefaultActiveStates() {
-        // Remove any existing active states to ensure everything starts collapsed
-        const allToggleButtons = document.querySelectorAll('.toggle-btn');
-        const allToggleContents = document.querySelectorAll('.toggle-content');
-        
-        allToggleButtons.forEach(btn => btn.classList.remove('active'));
-        allToggleContents.forEach(content => content.classList.remove('active'));
-        
-        // Note: Everything starts collapsed by default now
-        // Users need to click buttons to expand sections
-    }
-
-    // Smooth scrolling for any anchor links (if added later)
     function initializeSmoothScrolling() {
         const links = document.querySelectorAll('a[href^="#"]');
         
@@ -415,7 +781,6 @@
         });
     }
 
-    // Optional: Add keyboard navigation for accessibility
     function initializeKeyboardNavigation() {
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -427,13 +792,10 @@
         });
     }
 
-    // Handle window resize for responsive behavior
     window.addEventListener('resize', function() {
         // Add any responsive JavaScript behavior here if needed
-        // For example, adjusting layouts or recalculating positions
     });
 
-    // Optional: Add intersection observer for animations on scroll
     function initializeScrollAnimations() {
         const observerOptions = {
             threshold: 0.1,
@@ -449,10 +811,8 @@
             });
         }, observerOptions);
         
-        // Only observe elements that should animate on scroll, exclude toggle buttons and content
-        const animateElements = document.querySelectorAll('.experience-card, .project-category, .society-item');
+        const animateElements = document.querySelectorAll('.experience-card, .society-item');
         animateElements.forEach(el => {
-            // Only apply animation styles to elements that aren't toggle-related
             if (!el.classList.contains('toggle-content') && !el.classList.contains('toggle-btn')) {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
