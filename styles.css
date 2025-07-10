@@ -183,10 +183,10 @@
     }
 
     .society-item img {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       object-fit: contain;
-      border-radius: 10px;
+      border-radius: 5px;
     }
 
     .experience-grid {
