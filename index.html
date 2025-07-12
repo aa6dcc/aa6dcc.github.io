@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antoine Divet</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -153,6 +154,21 @@
                   <p class="experience-period">Summer 2025 – 10 weeks internship, Risk Software Developer Intern</p>
                 </div>
               </div>
+              <button class="expand-btn">▶ Show Details</button>
+              <div class="expanded-content">
+                <ul>
+                  <li>Led the development of a full-stack application for the Credit Risk team to enable dynamic credit limit adjustments
+                  <ul>
+                    <li>Built a SQL database</li>
+                    <li>Developed a .NET API in C# (using multilayered architecture)</li>
+                    <li>Implemented a React-based front end</li>
+                    <li>Integrated Databricks for cloud-based data processing</li>
+                  </ul>
+                  </li>
+                  <li>Collaborated on a market volatility project</li>
+                </ul>
+              </div>
+
             </div>
 
             <div class="experience-card">
@@ -586,11 +602,13 @@
         </div>
       </div>
 
-      <div id="projects-data" class="toggle-content">
+     <div id="projects-data" class="toggle-content">
         <div class="experience-grid">
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/ef4444/ffffff?text=📊" alt="Math ML Logo" class="experience-logo">
+              <div class="experience-logo data-science-logo">
+                <span class="material-symbols-outlined">calculate</span>
+              </div>
               <div>
                 <h3 class="experience-title">Mathematics for Machine Learning Specialization</h3>
                 <p class="experience-period">Linear Algebra, Calculus, PCA - <a href="https://www.coursera.org/specializations/mathematics-machine-learning">Coursera</a> | <a href="images/MMML Certif.jpg">Certificate</a></p>
@@ -599,7 +617,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/ef4444/ffffff?text=📈" alt="Statistics Logo" class="experience-logo">
+              <div class="experience-logo data-science-logo">
+                <span class="material-symbols-outlined">trending_up</span>
+              </div>
               <div>
                 <h3 class="experience-title">Mathematical Statistics for Data Science</h3>
                 <p class="experience-period">Statistics Course - <a href="images/Statistics certif.jpg">Certificate</a></p>
@@ -608,7 +628,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/ef4444/ffffff?text=🎲" alt="Stochastic Logo" class="experience-logo">
+              <div class="experience-logo data-science-logo">
+                <span class="material-symbols-outlined">casino</span>
+              </div>
               <div>
                 <h3 class="experience-title">Stochastic Calculus</h3>
                 <p class="experience-period">Advanced Mathematics Course - <a href="images/Stochastic certif.jpg">Certificate</a></p>
@@ -617,7 +639,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/ef4444/ffffff?text=🔬" alt="Data Science Logo" class="experience-logo">
+              <div class="experience-logo data-science-logo">
+                <span class="material-symbols-outlined">science</span>
+              </div>
               <div>
                 <h3 class="experience-title">Data Science Projects</h3>
                 <p class="experience-period">Forecasting, Regression Analysis - <a href="projets/DataScienceProjects.html">View Projects</a></p>
@@ -635,7 +659,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/ef4444/ffffff?text=⚡" alt="QRT Logo" class="experience-logo">
+              <div class="experience-logo data-science-logo">
+                <span class="material-symbols-outlined">bolt</span>
+              </div>
               <div>
                 <h3 class="experience-title">QRT Algothon</h3>
                 <p class="experience-period">November 2023 - Energy Price Prediction Competition</p>
@@ -653,7 +679,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/ef4444/ffffff?text=🛡️" alt="IBM Logo" class="experience-logo">
+              <div class="experience-logo data-science-logo">
+                <span class="material-symbols-outlined">security</span>
+              </div>
               <div>
                 <h3 class="experience-title">IBM Z Datathon</h3>
                 <p class="experience-period">October 2023 - Spam Classification Challenge</p>
@@ -676,7 +704,9 @@
         <div class="experience-grid">
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=🏊" alt="Swimming Logo" class="experience-logo">
+              <div class="experience-logo sports-logo">
+                <span class="material-symbols-outlined">pool</span>
+              </div>
               <div>
                 <h3 class="experience-title">BUCS Swimming Championships</h3>
                 <p class="experience-period">2023 - Represented Imperial College - <a href="https://www.bucs.org.uk/events-page/swimming-para-swimming-short-course-championships-2023-24.html">Event Info</a></p>
@@ -685,7 +715,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=🏆" alt="Nationals Logo" class="experience-logo">
+              <div class="experience-logo sports-logo">
+                <span class="material-symbols-outlined">emoji_events</span>
+              </div>
               <div>
                 <h3 class="experience-title">English Nationals & Euro Meet</h3>
                 <p class="experience-period">Qualified for national level competitions - <a href="https://www.swimming.org/sport/national-events/">EN</a> | <a href="http://www.euromeet.lu/">Euro Meet</a></p>
@@ -694,7 +726,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=🥇" alt="Awards Logo" class="experience-logo">
+              <div class="experience-logo sports-logo">
+                <span class="material-symbols-outlined">military_tech</span>
+              </div>
               <div>
                 <h3 class="experience-title">London Youth Games</h3>
                 <p class="experience-period">2019 - Outstanding Individual Boy Award, 2 Gold & 1 Silver Medal - <a href="https://www.londonyouthgames.org/sports/swimming/">LYG Swimming</a></p>
@@ -703,7 +737,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=♟️" alt="Chess Logo" class="experience-logo">
+              <div class="experience-logo sports-logo">
+                <span class="material-symbols-outlined">chess</span>
+              </div>
               <div>
                 <h3 class="experience-title">Chess Rating & Achievements</h3>
                 <p class="experience-period">ECF Rating: 1663 - <a href="https://rating.englishchess.org.uk/v2/new/player.php?ECF_code=305189E">View Rating</a></p>
@@ -712,7 +748,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=🏆" alt="Chess Tournament Logo" class="experience-logo">
+              <div class="experience-logo sports-logo">
+                <span class="material-symbols-outlined">trophy</span>
+              </div>
               <div>
                 <h3 class="experience-title">Chess Tournament Victories</h3>
                 <p class="experience-period">3 Tournaments Won including <a href="https://chess-results.com/tnr400139.aspx?lan=1&art=4">LJCC Championship</a></p>
@@ -721,7 +759,9 @@
           </div>
           <div class="experience-card">
             <div class="experience-header">
-              <img src="https://via.placeholder.com/50x50/06b6d4/ffffff?text=🎓" alt="Chess Coaching Logo" class="experience-logo">
+              <div class="experience-logo sports-logo">
+                <span class="material-symbols-outlined">school</span>
+              </div>
               <div>
                 <h3 class="experience-title">Chess Coaching & Commentary</h3>
                 <p class="experience-period">Junior squad coach and online chess commentator</p>
