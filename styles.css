@@ -56,9 +56,6 @@ body {
   opacity: 0.9;
 }
 
-.expanded-content ul ul {
-  font-size: 0.9em; /* or 14px, 0.8em, etc. */
-}
 
 .social-links {
   display: flex;
@@ -332,17 +329,37 @@ body {
   padding: 0;
 }
 
-.expanded-content li {
+/* Main level list items */
+.expanded-content > ul > li {
   padding: 5px 0;
   padding-left: 20px;
   position: relative;
 }
 
-.expanded-content li:before {
+.expanded-content > ul > li:before {
   content: "▶";
   position: absolute;
   left: 0;
   color: #667eea;
+}
+
+/* Nested level list items - smaller and different bullet */
+.expanded-content ul ul {
+  font-size: 0.85em;
+  margin-top: 8px;
+}
+
+.expanded-content ul ul li {
+  padding: 3px 0;
+  padding-left: 15px;
+}
+
+.expanded-content ul ul li:before {
+  content: "•"; /* Big dot */
+  /* OR use content: "–"; for dash */
+  /* OR use content: "◦"; for hollow circle */
+  left: 0;
+  color: #999;
 }
 
 @media (max-width: 768px) {
