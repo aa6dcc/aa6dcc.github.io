@@ -303,11 +303,80 @@
     <section class="section">
       <h2 class="section-title">Projects, MOOCs & Interests</h2>
       <div class="toggle-group">
+        <button class="toggle-btn" data-target="projects-university">Academic</button>
         <button class="toggle-btn" data-target="projects-finance">Finance</button>
         <button class="toggle-btn" data-target="projects-engineering">Engineering</button>
         <button class="toggle-btn" data-target="projects-programming">Programming</button>
         <button class="toggle-btn" data-target="projects-data">Data Science & ML</button>
         <button class="toggle-btn" data-target="projects-sports">Sports</button>
+      </div>
+
+      <div id="projects-university" class="toggle-content">
+        <div class="experience-grid">
+          <div class="experience-card">
+            <div class="experience-header">
+              <img src="images/RISC-V-Testbed.png" alt="C90 Logo" class="experience-logo">
+              <div>
+                <h3 class="experience-title">C90 Compiler</h3>
+                <p class="experience-period">RISC-V Architecture Compiler Project</p>
+              </div>
+            </div>
+            <button class="expand-btn">▶ Show Details</button>
+            <div class="expanded-content">
+              <ul>
+                <li>Built a C90 compiler as a duo targeting the RV64 RISC-V architecture, translating ANSI C into RISC-V assembly</li>
+                <li>Includes lexer, parser, and AST builder designed for C90 syntax</li>
+                <li>Semantic analysis with a scoped symbol table for variable declarations, type checking, and shadowing</li>
+                <li>Supports control flow constructs (if, while, for), arithmetic/logical expressions, function calls, and struct access</li>
+                <li>RISC-V code generation with proper calling conventions, stack/register management, and memory alignment</li>
+                <li>Docker for consistent build/runtime environment</li>
+                <li>Used Jira to track tasks and team progress</li>
+              </ul>
+            </div>
+          </div>
+          <div class="experience-card">
+            <div class="experience-header">
+              <img src="images/fpga_logo.jpg" alt="FPGA Logo" class="experience-logo">
+              <div>
+                <h3 class="experience-title">FPGA-based Video Game: Laser Grids</h3>
+                <p class="experience-period">Cooperative 2-player puzzle game with FPGA controllers</p>
+              </div>
+            </div>
+            <button class="expand-btn">▶ Show Details</button>
+            <div class="expanded-content">
+              <ul>
+                <li>Cooperative 2-player puzzle game using accelerometer-based controllers on FPGA</li>
+                <li>AES encryption and FIR filter modules implemented in Verilog on DE10-Lite FPGA</li>
+                <li>Game logic built in Unity (C#) with authoritative physics server and event-driven scripting</li>
+                <li>Multithreaded C++ TCP server for login/session management; UDP for real-time gameplay</li>
+                <li>Real-time accelerometer input processed with FIR filter for smooth character movement</li>
+                <li>Hosted game servers on AWS EC2; DynamoDB for users/stats/achievements using partition/sort keys and GSI</li>
+                <li>Personally built the TCP server (with PuTTY testing) and implemented DynamoDB schema to support fast queries</li>
+              </ul>
+            </div>
+          </div>
+          <div class="experience-card">
+            <div class="experience-header">
+              <div class="experience-logo">
+                <span class="material-symbols-outlined heat-icon">whatshot</span>
+              </div>
+              <div>
+                <h3 class="experience-title">Heat Equation Analysis</h3>
+                <p class="experience-period">Computational Mathematics Project - <a href="https://github.com/aa6dcc/Heat-Equation">GitHub</a></p>
+              </div>
+            </div>
+            <button class="expand-btn">▶ Show Details</button>
+            <div class="expanded-content">
+              <ul>
+                <li>Analyzed the heat equation through multiple computational approaches: Finite Difference Methods, Monte Carlo simulations, and Runge-Kutta integration</li>
+                <li>Applied Fourier series and Laplace transforms for estimating solutions</li>
+                <li>Incorporated visualization of solution bounds and thermal diffusion using Python plotting libraries</li>
+                <li>Used NumPy, SciPy, SymPy, Matplotlib & Plotly extensively</li>
+                <li>Reinforced understanding of PDEs and numerical methods while exploring different representations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="projects-finance" class="toggle-content">
@@ -514,70 +583,7 @@
               </div>
             </div>
           </div>
-          <div class="experience-card">
-            <div class="experience-header">
-              <img src="images/RISC-V-Testbed.png" alt="C90 Logo" class="experience-logo">
-              <div>
-                <h3 class="experience-title">C90 Compiler</h3>
-                <p class="experience-period">RISC-V Architecture Compiler Project</p>
-              </div>
-            </div>
-            <button class="expand-btn">▶ Show Details</button>
-            <div class="expanded-content">
-              <ul>
-                <li>Built a C90 compiler as a duo targeting the RV64 RISC-V architecture, translating ANSI C into RISC-V assembly</li>
-                <li>Includes lexer, parser, and AST builder designed for C90 syntax</li>
-                <li>Semantic analysis with a scoped symbol table for variable declarations, type checking, and shadowing</li>
-                <li>Supports control flow constructs (if, while, for), arithmetic/logical expressions, function calls, and struct access</li>
-                <li>RISC-V code generation with proper calling conventions, stack/register management, and memory alignment</li>
-                <li>Docker for consistent build/runtime environment</li>
-                <li>Used Jira to track tasks and team progress</li>
-              </ul>
-            </div>
-          </div>
-          <div class="experience-card">
-            <div class="experience-header">
-              <img src="images/fpga_logo.jpg" alt="FPGA Logo" class="experience-logo">
-              <div>
-                <h3 class="experience-title">FPGA-based Video Game: Laser Grids</h3>
-                <p class="experience-period">Cooperative 2-player puzzle game with FPGA controllers</p>
-              </div>
-            </div>
-            <button class="expand-btn">▶ Show Details</button>
-            <div class="expanded-content">
-              <ul>
-                <li>Cooperative 2-player puzzle game using accelerometer-based controllers on FPGA</li>
-                <li>AES encryption and FIR filter modules implemented in Verilog on DE10-Lite FPGA</li>
-                <li>Game logic built in Unity (C#) with authoritative physics server and event-driven scripting</li>
-                <li>Multithreaded C++ TCP server for login/session management; UDP for real-time gameplay</li>
-                <li>Real-time accelerometer input processed with FIR filter for smooth character movement</li>
-                <li>Hosted game servers on AWS EC2; DynamoDB for users/stats/achievements using partition/sort keys and GSI</li>
-                <li>Personally built the TCP server (with PuTTY testing) and implemented DynamoDB schema to support fast queries</li>
-              </ul>
-            </div>
-          </div>
-          <div class="experience-card">
-            <div class="experience-header">
-              <!-- <img src="https://via.placeholder.com/50x50/8b5cf6/ffffff?text=🔥" alt="Heat Equation Logo" class="experience-logo"> -->
-              <div class="experience-logo">
-                <span class="material-symbols-outlined heat-icon">whatshot</span>
-              </div>
-              <div>
-                <h3 class="experience-title">Heat Equation Analysis</h3>
-                <p class="experience-period">Computational Mathematics Project - <a href="https://github.com/aa6dcc/Heat-Equation">GitHub</a></p>
-              </div>
-            </div>
-            <button class="expand-btn">▶ Show Details</button>
-            <div class="expanded-content">
-              <ul>
-                <li>Analyzed the heat equation through multiple computational approaches: Finite Difference Methods, Monte Carlo simulations, and Runge-Kutta integration</li>
-                <li>Applied Fourier series and Laplace transforms for estimating solutions</li>
-                <li>Incorporated visualization of solution bounds and thermal diffusion using Python plotting libraries</li>
-                <li>Used NumPy, SciPy, SymPy, Matplotlib & Plotly extensively</li>
-                <li>Reinforced understanding of PDEs and numerical methods while exploring different representations</li>
-              </ul>
-            </div>
-          </div>
+          
           <div class="experience-card">
             <div class="experience-header">
               <img src="images/React.png" alt="React Logo" class="experience-logo">
